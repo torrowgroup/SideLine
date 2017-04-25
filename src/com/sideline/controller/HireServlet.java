@@ -26,7 +26,7 @@ public class HireServlet extends HttpServlet {
 			String username= (String) request.getSession().getAttribute("username");
 			Hire list=null;
 			try {
-				list = new HireService().fingByname(username);
+				//list = new HireService().fingByname(username);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
