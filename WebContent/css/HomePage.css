@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+#function{
+	width:20%;
+	 height: 200px;
+	background-color: red;
+	  float:left;
+}
+#view{
+	width:80%;
+	 height: 200px;
+	background-color: green;
+	  float:left;
+}
