@@ -9,61 +9,55 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sideline.entity.User;
+import com.sideline.entity.Manager;
+import com.sideline.service.ManagerService;
 import com.sideline.service.UserService;
 
-
-@WebServlet("/UserServlet")
-public class UserServlet extends HttpServlet {
+@WebServlet("/ManagerServlet")
+public class ManagerServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ask= request.getParameter("ask");
-		System.out.println(ask);
-		if(ask.equals("check")){
+		if(ask.equals("checkmanager")){
 			String username= (String) request.getSession().getAttribute("username");
-			User list=null;
+			System.out.println(username);
+			Manager manlist=null;
 			try {
-				list = new UserService().fingByname(username);
-				System.out.println(list);
+				manlist = new ManagerService().fingByname(username);
+				System.out.println(manlist);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		    request.setAttribute("list",list);
-		    request.getRequestDispatcher("/WEB-INF/jsp/mynew.jsp").forward(request, response);
-		} 
+		    request.setAttribute("manlist",manlist);
+		    request.getRequestDispatcher("/WEB-INF/jsp/managernew.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String ask= request.getParameter("ask");
-		System.out.println(ask);
-		if(ask.equals("updateuser")){
+		String ask=request.getParameter("ask");
+		if(ask.equals("updatemanager")){
 			String id=request.getParameter("id");
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
-			String name=request.getParameter("name");
 			String phone=request.getParameter("phone");
-			String sex=request.getParameter("sex");
-			String age=request.getParameter("age");
-			String location=request.getParameter("location");
-			String security=request.getParameter("security");
-			String answer=request.getParameter("answer");
-			User user=new User(id,username,password,name,phone,sex,age,location,security,answer);
+			String name=request.getParameter("name");
+			Manager manager=new Manager(id,username,password,phone,name);
 			boolean bool=false;
 			 PrintWriter out = response.getWriter();
 			 try {
-				bool=new UserService().update(user);
+				bool=new ManagerService().update(manager);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			 if(bool=true){
 				 out.println("更改成功");
-				 response.setHeader("refresh", "2;url=/SideLine/UserServlet?ask=check");
+				 response.setHeader("refresh", "2;url=/SideLine/ManagerServlet?ask=checkmanager");
 			 }
 			 else if(bool=false){
 				 out.println("更改失败");
-				 response.setHeader("refresh", "2;url=/SideLine/UserServlet?ask=check");
+				 response.setHeader("refresh", "2;url=/SideLine/ManagerServlet?ask=checkmanager");
 			 }
 		}
 	}

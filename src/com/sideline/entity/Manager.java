@@ -26,6 +26,12 @@ public class Manager {
 	}
 
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -57,10 +63,11 @@ public class Manager {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	@Override
 	public String toString() {
-		return "Manager [username=" + username + ", password=" + password + ", phone=" + phone + ", name=" + name + "]";
+		return "Manager [id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone
+				+ ", name=" + name + "]";
 	}
+
 	
 }

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sideline.entity.Manager;
 import com.sideline.entity.Recruit;
 import com.sideline.entity.User;
+import com.sideline.service.ManagerService;
 import com.sideline.service.RecruitService;
 import com.sideline.service.UserService;
 
@@ -46,8 +48,6 @@ public class LoginServlet extends HttpServlet {
 				}
 				if(mark==0){
 					userPrompt="账号错误，请重新输入";
-					request.setAttribute("userPrompt", userPrompt);
-					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
 				else if(mark==1){
 					request.getSession().setAttribute("username", username);
@@ -56,15 +56,14 @@ public class LoginServlet extends HttpServlet {
 				}
 				else if(mark==2){
 					userPrompt="密码错误，请重新输入";
-					request.setAttribute("userPrompt", userPrompt);
-					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
 			}
 			else{
 				userPrompt="验证码错误，请重新输入";
-				request.setAttribute("userPrompt", userPrompt);
-				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
+			request.setAttribute("userPrompt", userPrompt);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			return;
 		}
 		else if(ask.equals("appeal")){
 			String userPrompt="未作处理，请重新尝试";
@@ -83,12 +82,14 @@ public class LoginServlet extends HttpServlet {
 				userPrompt="无此账号或无密保问题，请重新输入";
 				request.setAttribute("userPrompt", userPrompt);
 				request.getRequestDispatcher("appeal.jsp").forward(request, response);
+				return;
 			}
 			else if(!(mark.equals(null))){
 				 request.getSession().setAttribute("username", username);
 				 request.getSession().setAttribute("security", mark);
 					//request.getRequestDispatcher("/StuServlet/AmendStuServlet").forward(request, response);
 				request.getRequestDispatcher("/WEB-INF/jsp/question.jsp").forward(request, response);
+				return;
 			}
 		}
 		else if(ask.equals("answer")){
@@ -109,13 +110,52 @@ public class LoginServlet extends HttpServlet {
 				userPrompt="密保答案错误，请重新输入";
 				request.setAttribute("userPrompt", userPrompt);
 				request.getRequestDispatcher("appeal.jsp").forward(request, response);
+				return;
 			}
 			else if(!(mark.equals(null))){
 				 request.getSession().setAttribute("username", username);
 				 userPrompt=mark;
 				 request.setAttribute("userPrompt", userPrompt);
-				request.getRequestDispatcher("/WEB-INF/jsp/question.jsp").forward(request, response);
+				 request.getRequestDispatcher("/WEB-INF/jsp/question.jsp").forward(request, response);
+				 return;
 			}
+		}
+		else if(ask.equals("managerlogin")){
+			String username=request.getParameter("username");
+			String password=request.getParameter("password");
+			String checkcode=request.getParameter("checkcode");
+			checkcode = checkcode.toUpperCase();
+			String piccode = (String) request.getSession().getAttribute("piccode");
+			String managerPrompt="未作处理，请重新尝试";
+			if (checkcode.equals(piccode)) {
+				int mark = 3;
+				Manager manager=new Manager();
+				manager.setUsername(username);
+				manager.setPassword(password);
+				try {
+					mark=new ManagerService().find(manager);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(mark==0){
+					managerPrompt="账号错误，请重新输入";
+				}
+				else if(mark==1){
+					request.getSession().setAttribute("username", username);
+//					 //request.getRequestDispatcher("/StuServlet/AmendStuServlet").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/jsp/managerhome.jsp").forward(request, response);
+					return;
+				}
+				else if(mark==2){
+					managerPrompt="密码错误，请重新输入";
+				}
+			}
+			else{
+				managerPrompt="验证码错误，请重新输入";
+			}
+			request.setAttribute("managerPrompt", managerPrompt);
+			request.getRequestDispatcher("managerpage.jsp").forward(request, response);
 		}
 	}
 }
