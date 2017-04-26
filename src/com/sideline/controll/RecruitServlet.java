@@ -75,7 +75,7 @@ public class RecruitServlet extends HttpServlet {
 				if(lists==null){
 					recruitPrompt = "未提交过简历，无法推荐工作，请先填写简历";	//返回首页
 					List<Recruit> lists1 = new RecruitService().selectAllowRecruit();
-					forward = "/WEB-INF/jsp/homepage.jsp";
+					forward = "/WEB-INF/jsp/allowrecruit.jsp";
 				} else {
 					request.setAttribute("recommend", lists);
 					forward = "/WEB-INF/jsp/selectrecruit.jsp";
@@ -96,6 +96,7 @@ public class RecruitServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		request.setAttribute("recruitPrompt", recruitPrompt);
 		request.getRequestDispatcher(forward).forward(request, response);
 	}
 

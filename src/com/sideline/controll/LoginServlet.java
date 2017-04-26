@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
 				try {
 					mark=new UserService().findbyId(user);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if(mark==0){
@@ -51,7 +50,6 @@ public class LoginServlet extends HttpServlet {
 				}
 				else if(mark==1){
 					request.getSession().setAttribute("username", username);
-					 //request.getRequestDispatcher("/StuServlet/AmendStuServlet").forward(request, response);
 					request.getRequestDispatcher("/WEB-INF/jsp/HomePage.jsp").forward(request, response);
 				}
 				else if(mark==2){
