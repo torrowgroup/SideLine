@@ -68,8 +68,9 @@ public class RecruitDao extends DaoBase<Recruit>{
 	public boolean addRecruit(Recruit recruit) throws SQLException {	//发布招聘信息
 		return this.add(recruit);
 	}
-	public Recruit selectRecruitId(String recruitId) throws InstantiationException, IllegalAccessException {	 //根据id查询特定的招聘表
-		String sql = "select * from Reaume where id="+recruitId;
-		return (Recruit) this.executeFindSql(sql);
+	public Recruit selectRecruitId(String recruitId) throws Exception {	 //根据id查询特定的招聘表
+		String sql = "select * from Recruit where id='"+recruitId+"'";
+		List<Recruit> lists = (List<Recruit>) this.executeFindSql(sql);
+		return lists.get(0);
 	}
 }

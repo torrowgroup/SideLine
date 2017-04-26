@@ -17,7 +17,7 @@ import com.sideline.service.HireService;
 import com.sideline.service.ReaumeService;
 import com.sideline.service.RecruitService;
 
-@WebServlet("/hireServlet")
+@WebServlet("/HireServlet")
 public class HireServlet extends HttpServlet {
 	
 	
@@ -30,32 +30,27 @@ public class HireServlet extends HttpServlet {
     	String forward = null;
     	if(ask.equals("apply")){	//请求为申请工作
     		String recruitId = request.getParameter("recruitId");	//得到招聘表ID
+    		System.out.println(recruitId+"recruitId");
     		hirePrompt = "申请失败，不符合要求";
     		try {
-				Recruit recruit = null;
-				try {
-					recruit = new RecruitService().selectRecruitId(recruitId);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				Recruit recruit = new RecruitService().selectRecruitId(recruitId);
 				String unit = recruit.getUnit();
+				System.out.println(recruit+" recruit"+unit);
 				String unitusername = recruit.getUsername();
-				try {
-					Reaume reaume = new ReaumeService().selectOnesReaume(user);	//查找出用户最新的简历
-					String seekerId = reaume.getId();
-					Hire hire = new Hire(recruitId,unit,unitusername,seekerId,username,null,null,"否");
-					boolean boo = new HireService().addHire(hire);
-					if(boo){
-						hirePrompt = "申请成功，等待审核";
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
+				Reaume reaume = new ReaumeService().selectOnesReaume(user);	//查找出用户最新的简历
+				String seekerId = reaume.getId();
+				Hire hire = new Hire(recruitId,unit,unitusername,seekerId,username,null,null,"否");
+				boolean boo = new HireService().addHire(hire);
+				boolean booo = new RecruitService().deleteId(recruitId);
+				if(boo&&booo){
+					hirePrompt = "申请成功，请联系招聘人";
 				}
+				List<Recruit> lists = new RecruitService().selectAllowRecruit();	//查找出所有的允许发布的招聘表
+				request.setAttribute("recommend", lists);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    		forward = "/WEB-INF/jsp/selectrecruit.jsp";
+    		forward = "/WEB-INF/jsp/selectrecruit.jsp";	/////
     	} else if(ask.equals("check")){	//审核招聘表，求职表   管理员
     		try {
 				List<Recruit> lists = new RecruitService().selectNotAllowRecruit();
@@ -66,6 +61,7 @@ public class HireServlet extends HttpServlet {
 			}
     	}
     	request.setAttribute("hirePrompt", hirePrompt);
+    	request.getRequestDispatcher(forward).forward(request, response);
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

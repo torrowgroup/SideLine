@@ -89,7 +89,7 @@ public class DaoBase<T>{
 		
 		// 执行查询语句
 		public List<T> executeFindSql(String sql, Object... obj) throws InstantiationException, IllegalAccessException {
-			List<T> list = new ArrayList<>();
+			List<T> list = new ArrayList<T>();
 			try {
 				PreparedStatement ps = (PreparedStatement) MysqlLink.conn.prepareStatement(sql);
 				for (int i = 0; i < obj.length; i++) {

@@ -21,7 +21,7 @@ public class RecruitService {
 	public List<Recruit> fingByid(String id) throws Exception {
 		return new RecruitDao().fingByid(id);
 	}
-	public boolean deleteId(String id) {
+	public boolean deleteId(String id) {	//删除招聘表
 		return new RecruitDao().deleteId(id);
 	}
 

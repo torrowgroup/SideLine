@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<center>${recruitPrompt}</center>
 		<div>
 		 <table style="border: solid;">
 			<tr>
