@@ -18,7 +18,7 @@ import com.sideline.util.MysqlLink;
 public class DaoBase<T>{
 	private Class<T> clazz;
 	private String tableName;// 表名
-	//第一行注释
+	//第一行傻逼
 
 	//马黎明
 	@SuppressWarnings("unchecked")
