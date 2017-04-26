@@ -1,4 +1,4 @@
-package com.sideline.controller;
+package com.sideline.controll;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

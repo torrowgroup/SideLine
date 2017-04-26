@@ -28,6 +28,7 @@ public class SideLineFilter implements Filter {
 	    responseNew.setCharacterEncoding("utf-8");
 		String username = (String) requestNew.getSession().getAttribute("username");
 		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
+		System.out.println("28"+requestNew.getRequestURI());
 		if(noPath!=null){
 			String []str = noPath.split(";");
 			for (int i = 0; i < str.length; i++) {

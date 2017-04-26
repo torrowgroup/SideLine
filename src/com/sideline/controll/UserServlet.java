@@ -1,4 +1,4 @@
-package com.sideline.controller;
+package com.sideline.controll;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,10 +17,6 @@ import com.sideline.service.UserService;
 public class UserServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ask= request.getParameter("ask");
 		System.out.println(ask);
 		if(ask.equals("check")){
@@ -28,14 +24,19 @@ public class UserServlet extends HttpServlet {
 			User list=null;
 			try {
 				list = new UserService().fingByname(username);
-
+System.out.println(list);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		        request.setAttribute("list",list);
-		        request.getRequestDispatcher("/WEB-INF/jsp/Mynews.jsp").forward(request, response);
-		}
+		    request.setAttribute("list",list);
+		    request.getRequestDispatcher("/WEB-INF/jsp/mynew.jsp").forward(request, response);
+		} 
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String ask= request.getParameter("ask");
+		System.out.println(ask);
 		if(ask.equals("updateuser")){
 			String id=request.getParameter("id");
 			String username=request.getParameter("username");

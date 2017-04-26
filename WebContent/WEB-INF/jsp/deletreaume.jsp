@@ -24,7 +24,6 @@
 				<td>手机号</td>
 				<td>技能</td>
 				<td>自我介绍</td>
-				<td>状态</td>
 				<td>操作</td>
 			</tr>
 			 <c:forEach items="${requestScope.list}" var="item">  
@@ -40,7 +39,6 @@
 	                <td><input name="phone" value="${item.phone}" size="2"></td>
 	                <td><input name="skill" value="${item.skill}" size="6"></td>
 	                <td><input name="introduce" value="${item.introduce}" size="6"></td>
-	                <td><input name="allow" value="${item.allow}" size="6"></td>
 	                <td><a href="${path}/ReaumeServlet?id=${item.id}&ask=delet">删除</a></td>
 	                <td><a href="${path}/ReaumeServlet?id=${item.id}&ask=update">修改</a></td>      
 	            </tr>  

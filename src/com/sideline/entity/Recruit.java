@@ -15,7 +15,7 @@ public class Recruit {
 	public Recruit() {
 		
 	}
-	public Recruit( String username, String unit, String name, String work, String requirement, String phone,
+	public Recruit(String username, String unit, String name, String work, String requirement, String phone,
 			String time, String location, String salary, String allow) {
 		this.username = username;
 		this.unit = unit;
@@ -137,5 +137,9 @@ public class Recruit {
 		return "Recruit [id=" + id + ", username=" + username + ", unit=" + unit + ", name=" + name + ", work=" + work
 				+ ", requirement=" + requirement + ", phone=" + phone + ", time=" + time + ", location=" + location
 				+ ", salary=" + salary + ", allow=" + allow + "]";
+
 	}	
+
+
+
 }

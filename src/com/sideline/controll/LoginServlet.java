@@ -1,13 +1,17 @@
-package com.sideline.controller;
+package com.sideline.controll;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sideline.entity.Recruit;
 import com.sideline.entity.User;
+import com.sideline.service.RecruitService;
 import com.sideline.service.UserService;
 
 
@@ -46,8 +50,8 @@ public class LoginServlet extends HttpServlet {
 					request.getRequestDispatcher("index.jsp").forward(request, response);
 				}
 				else if(mark==1){
-					 request.getSession().setAttribute("username", username);
-						//request.getRequestDispatcher("/StuServlet/AmendStuServlet").forward(request, response);
+					request.getSession().setAttribute("username", username);
+					 //request.getRequestDispatcher("/StuServlet/AmendStuServlet").forward(request, response);
 					request.getRequestDispatcher("/WEB-INF/jsp/HomePage.jsp").forward(request, response);
 				}
 				else if(mark==2){

@@ -10,20 +10,22 @@ public class Manager {
 	public Manager() {
 		
 	}
-
+	public Manager(String id,String username, String password, String phone, String name) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.phone = phone;
+		this.name = name;
+	}
+	
 	public Manager(String username, String password, String phone, String name) {
 		this.username = username;
 		this.password = password;
 		this.phone = phone;
 		this.name = name;
 	}
-	public Manager(String id,String username, String password, String phone, String name) {
-		this.id=id;
-		this.username = username;
-		this.password = password;
-		this.phone = phone;
-		this.name = name;
-	}
+
+
 	public String getUsername() {
 		return username;
 	}

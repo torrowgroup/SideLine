@@ -20,9 +20,8 @@
 	               手机号:<input name="phone" value="${item.phone}">
 	               技&nbsp&nbsp&nbsp&nbsp能:<input name="skill" value="${item.skill}"><br>
 	               介&nbsp&nbsp&nbsp&nbsp绍:<input name="introduce" value="${item.introduce}">
-	               状&nbsp&nbsp&nbsp&nbsp态:<input name="allow" value="${item.allow}" readonly="readonly">
-	                <input type="submit" value="提交">
-	                </form>
-        	</c:forEach>
+	            				 <input type="submit" value="提交">
+	 </form>
+	</c:forEach>
 </body>
 </html>

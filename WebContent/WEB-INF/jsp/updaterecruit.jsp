@@ -10,17 +10,16 @@
 <body>
 	<c:forEach items="${requestScope.list}" var="item">
 	 <form name="form" action="${path}/RecruitServlet?ask=updaterecruit&id=${item.id}" method="post">
-	               <input name="id" value="${item.id}">
-	                <input name="username" value="${item.username}">
-	                <input name="unit" value="${item.unit}">
-	                <input name="name" value="${item.name}">
-	                <input name="work" value="${item.work}">
-	                <input name="requirement" value="${item.requirement}">
-	                <input name="phone" value="${item.phone}">
-	                <input name="time" value="${item.time}">
-	                <input name="location" value="${item.location}">
-	                <input name="salary" value="${item.salary}">
-	                <input name="allow" value="${item.allow}">
+	                用户名:<input name="username" value="${item.username}">
+	                招聘单位(个人)<input name="unit" value="${item.unit}">
+	                发起人:<input name="name" value="${item.name}"><br>
+	                所需工作:<input name="work" value="${item.work}">
+	                经验要求<input name="requirement" value="${item.requirement}">
+	                手机号:<input name="phone" value="${item.phone}"><br>
+	                工作时间:<input name="time" value="${item.time}">
+	                工作地点:<input name="location" value="${item.location}">
+	                薪资/h:<input name="salary" value="${item.salary}"><br>
+	                是否通过审核:<input name="allow" value="${item.allow}">
 	                <input type="submit" value="提交">
 	                </form>
         	</c:forEach>

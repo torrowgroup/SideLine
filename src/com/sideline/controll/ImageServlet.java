@@ -1,4 +1,4 @@
-package com.sideline.controller;
+package com.sideline.controll;
 
 import java.awt.Color;
 import java.awt.Graphics;

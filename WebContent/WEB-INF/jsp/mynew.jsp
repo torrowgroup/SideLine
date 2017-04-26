@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-			 <form name="form" action="${path}/UserServlet?ask=updateuser&id=${list.id}" method="post"> 
+	<form name="form" action="${path}/UserServlet?ask=updateuser&id=${list.id}" method="post"> 
 	               	账户名:<input name="username" value="${list.username}" readonly="readonly">
 	               	密&nbsp&nbsp&nbsp&nbsp码:<input name="password" value="${list.password}"><br>
 	               	姓&nbsp&nbsp&nbsp&nbsp名:<input name="name" value="${list.name}">
@@ -18,7 +18,7 @@
 	               	地&nbsp&nbsp&nbsp&nbsp址:<input name="location" value="${list.location}">
 	               	密&nbsp&nbsp&nbsp&nbsp保:<input name="security" value="${list.security}"><br>
 	               	答&nbsp&nbsp&nbsp&nbsp案:<input name="answer" value="${list.answer}">
-	               <input type="submit" value="提交">
-	           </form>  
+	               <input type="submit" value="修改">
+	           </form>
 </body>
 </html>

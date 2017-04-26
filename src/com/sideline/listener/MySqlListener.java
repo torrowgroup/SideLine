@@ -26,5 +26,6 @@ public class MySqlListener implements ServletContextListener{
     	new MysqlLink().getLink();
     	String path = event.getServletContext().getContextPath();
     	event.getServletContext().setAttribute("path", path);
+
     }   
 }

@@ -9,22 +9,12 @@ public class Hire {
 	private String seekerusername;
 	private String unitremark;
 	private String seekerremark;
-	
-	public Hire() {
-		
-	}
-	public Hire(String unitid, String unit, String unitusername, String seekerid, String seekerusername,
-			String unitremark, String seekerremark) {
-		this.unitid = unitid;
-		this.unit = unit;
-		this.unitusername = unitusername;
-		this.seekerid = seekerid;
-		this.seekerusername = seekerusername;
-		this.unitremark = unitremark;
-		this.seekerremark = seekerremark;
-	}
+	private String finish;
+
+
+
 	public Hire(String id, String unitid, String unit, String unitusername, String seekerid, String seekerusername,
-			String unitremark, String seekerremark) {
+			String unitremark, String seekerremark,String finish) {
 		this.id = id;
 		this.unitid = unitid;
 		this.unit = unit;
@@ -33,7 +23,23 @@ public class Hire {
 		this.seekerusername = seekerusername;
 		this.unitremark = unitremark;
 		this.seekerremark = seekerremark;
+		this.finish=finish;
+
 	}
+	public Hire(String unitid, String unit, String unitusername, String seekerid, String seekerusername,
+			String unitremark, String seekerremark, String finish) {
+		super();
+		this.unitid = unitid;
+		this.unit = unit;
+		this.unitusername = unitusername;
+		this.seekerid = seekerid;
+		this.seekerusername = seekerusername;
+		this.unitremark = unitremark;
+		this.seekerremark = seekerremark;
+		this.finish = finish;
+	}
+
+
 
 	public String getId() {
 		return id;
@@ -98,7 +104,12 @@ public class Hire {
 	public void setSeekerremark(String seekerremark) {
 		this.seekerremark = seekerremark;
 	}
-
+	public String getFinish() {
+		return finish;
+	}
+	public void setFinish(String finish) {
+		this.finish = finish;
+	}
 	@Override
 	public String toString() {
 		return "Hire [id=" + id + ", unitid=" + unitid + ", unit=" + unit + ", unitusername=" + unitusername

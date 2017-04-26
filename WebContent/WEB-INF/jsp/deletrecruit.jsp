@@ -22,7 +22,7 @@
 				<td>手机号</td>
 				<td>工作时间</td>
 				<td>地址</td>
-				<td>薪资</td>
+				<td>薪资/h</td>
 				<td>状态</td>
 			</tr>
 			 <c:forEach items="${requestScope.list}" var="item">  

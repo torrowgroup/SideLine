@@ -12,11 +12,13 @@ public class Reaume {
 	private String phone;
 	private String skill;
 	private String introduce;
-	private String allow;
 	public Reaume() {
 	}
-	public Reaume( String username, String name, String age, String sex, String location, String education,
-			String experience, String phone, String skill, String introduce,String allow) {
+
+
+
+	public Reaume(String username, String name, String age, String sex, String location, String education,
+			String experience, String phone, String skill, String introduce) {
 		this.username = username;
 		this.name = name;
 		this.age = age;
@@ -27,10 +29,11 @@ public class Reaume {
 		this.phone = phone;
 		this.skill = skill;
 		this.introduce = introduce;
-		this.allow=allow;
 	}
+
 	public Reaume(String id, String username, String name, String age, String sex, String location, String education,
-			String experience, String phone, String skill, String introduce,String allow) {
+			String experience, String phone, String skill, String introduce) {
+		super();
 		this.id = id;
 		this.username = username;
 		this.name = name;
@@ -42,7 +45,6 @@ public class Reaume {
 		this.phone = phone;
 		this.skill = skill;
 		this.introduce = introduce;
-		this.allow=allow;
 	}
 
 	public String getId() {
@@ -133,19 +135,11 @@ public class Reaume {
 		this.introduce = introduce;
 	}
 
-	public String getAllow() {
-		return allow;
-	}
-
-	public void setAllow(String allow) {
-		this.allow = allow;
-	}
-
 	@Override
 	public String toString() {
 		return "Reaume [id=" + id + ", username=" + username + ", name=" + name + ", age=" + age + ", sex=" + sex
 				+ ", location=" + location + ", education=" + education + ", experience=" + experience + ", phone="
-				+ phone + ", skill=" + skill + ", introduce=" + introduce + ", allow=" + allow + "]";
+				+ phone + ", skill=" + skill + ", introduce=" + introduce + "]";
 	}
 
 	

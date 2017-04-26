@@ -12,11 +12,16 @@ public class User {
 	private String security;
 	private String answer;
 	
+
+	
+
+
 	public User() {
-		
+		super();
 	}
-	public User( String username, String password, String name, String phone, String sex, String age,
+	public User(String id,String username, String password, String name, String phone, String sex, String age,
 			String location, String security, String answer) {
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.name = name;
@@ -27,10 +32,8 @@ public class User {
 		this.security = security;
 		this.answer = answer;
 	}
-
-	public User(String id, String username, String password, String name, String phone, String sex, String age,
+	public User(String username, String password, String name, String phone, String sex, String age,
 			String location, String security, String answer) {
-		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.name = name;

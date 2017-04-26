@@ -58,7 +58,19 @@ public class DaoBase<T>{
 			}
 			
 		}
-		
+		//根据ID查询个人简历的所有信息
+		public T findId(String username) throws Exception{
+			//获得子类所有的属性
+			Field[] fields=clazz.getDeclaredFields();				
+			String sql="select * from "+tableName+" where "+fields[0].getName()+"=?;";	
+			List<T> list=executeFindSql(sql, username);
+			if(list.size()>0){
+				return  (T) list;
+			}else{
+				return null;
+			}
+			
+		}
 		//查询所有
 		public List<T> selectAll() throws Exception {
 			// 获得子类所有的属性
@@ -102,7 +114,41 @@ public class DaoBase<T>{
 			return list;
 		}
 		
-		
+		// 插入add
+		public boolean add(T t) throws SQLException {
+			// 获得子类所有的属性
+			Field[] fields = clazz.getDeclaredFields();
+			String attribute = "";// 属性名
+			String placeholder = "";// 占位符
+			for (int i = 0; i < fields.length; i++) {
+				attribute = attribute + fields[i].getName();
+				placeholder = placeholder + "?";
+				if (i == fields.length - 1) {
+					continue;
+				}
+				attribute = attribute + ",";
+				placeholder = placeholder + ",";
+			}
+			String sql = "insert into " + tableName + " (" + attribute + ") values(" + placeholder + ")";
+			PreparedStatement ps = (PreparedStatement) MysqlLink.conn.prepareStatement(sql);
+			// 给占位符赋值
+			for (int i = 0; i < fields.length; i++) {
+				try {
+					Method method = clazz.getMethod(getGetOrSetMethodName("get", fields[i]));
+					ps.setString(i + 1, (String) method.invoke(t));
+
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			}
+			int ok = ps.executeUpdate();
+			if (ok == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		
 		// 修改update
 		public boolean updateEntity(T t) throws Exception {
