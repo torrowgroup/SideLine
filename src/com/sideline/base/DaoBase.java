@@ -19,6 +19,7 @@ public class DaoBase<T>{
 	private Class<T> clazz;
 	private String tableName;// 表名
 
+	//马黎明
 	@SuppressWarnings("unchecked")
 	public DaoBase() {
 		// 获得该类type
