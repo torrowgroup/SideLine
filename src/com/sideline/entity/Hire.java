@@ -11,7 +11,7 @@ public class Hire {
 	private String seekerremark;
 	private String finish;
 
-
+	public Hire(){}
 
 	public Hire(String id, String unitid, String unit, String unitusername, String seekerid, String seekerusername,
 			String unitremark, String seekerremark,String finish) {
@@ -110,11 +110,13 @@ public class Hire {
 	public void setFinish(String finish) {
 		this.finish = finish;
 	}
+
 	@Override
 	public String toString() {
 		return "Hire [id=" + id + ", unitid=" + unitid + ", unit=" + unit + ", unitusername=" + unitusername
 				+ ", seekerid=" + seekerid + ", seekerusername=" + seekerusername + ", unitremark=" + unitremark
-				+ ", seekerremark=" + seekerremark + "]";
+				+ ", seekerremark=" + seekerremark + ", finish=" + finish + "]";
 	}
+	
 	
 }

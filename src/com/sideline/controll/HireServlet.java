@@ -27,6 +27,7 @@ public class HireServlet extends HttpServlet {
     	User user = new User();
     	user.setUsername(username);
     	String ask = request.getParameter("ask");
+    	System.out.println(ask);
     	String forward = null;
     	if(ask.equals("apply")){	//请求为申请工作
     		String recruitId = request.getParameter("recruitId");	//得到招聘表ID
@@ -59,6 +60,16 @@ public class HireServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+    	}
+    	else if(ask.equals("checkall")){
+    		try {
+				List<Hire> lists = new HireService().selectAllowRecruit();
+				request.setAttribute("lists", lists);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		forward = "/WEB-INF/jsp/allhire.jsp";
     	}
     	request.setAttribute("hirePrompt", hirePrompt);
     	request.getRequestDispatcher(forward).forward(request, response);
