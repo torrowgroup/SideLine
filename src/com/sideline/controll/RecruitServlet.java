@@ -48,7 +48,19 @@ public class RecruitServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			forward = "/WEB-INF/jsp/updaterecruit.jsp";
 		}
-		
+		else if(ask.equals("verifyrecruit")){
+			ArrayList list = new ArrayList<Recruit>();
+			try {
+				list = (ArrayList) new RecruitService().selectNotAllowRecruit();
+				for(int i=0;i<list.size();i++){
+					System.out.println(list.get(i));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("list", list);
+			forward = "/WEB-INF/jsp/norecruit.jsp";
+		}
 		
 		
 		else if (ask.equals("delet")) {
@@ -103,7 +115,6 @@ public class RecruitServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String ask = request.getParameter("ask");
-		
 		String username = (String) request.getSession().getAttribute("username");
 		String unit = request.getParameter("unit");
 		String name = request.getParameter("name");
@@ -149,6 +160,26 @@ public class RecruitServlet extends HttpServlet {
 			}
 			request.setAttribute("recruitPrompt", recruitPrompt);
 			request.getRequestDispatcher("/WEB-INF/jsp/writerecruit.jsp").forward(request, response);
+		}
+		else if(ask.equals("updateno")){
+			String id = request.getParameter("id");
+			Recruit recruit = new Recruit(id, username, unit, name, work, requirement, phone, time, location, salary,
+					"是");
+			boolean bool = false;
+			PrintWriter out = response.getWriter();
+			try {
+				bool = new RecruitService().update(recruit);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (bool = true) {
+				out.println("更改成功");
+				response.setHeader("refresh", "2;/SideLine/RecruitServlet?ask=verifyrecruit");
+			} else if (bool = false) {
+				out.println("更改失败");
+				response.setHeader("refresh", "2;url=/SideLine/RecruitServlet?ask=verifyrecruit");
+			}
 		}
 	}
 

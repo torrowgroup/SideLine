@@ -15,12 +15,15 @@
      </details>
      <details>
 		<summary>求职管理</summary>
-		<a href="" target="in">查看简历</a><br>  
+		<a href="${path}/ReaumeServlet?ask=check" target="in">查看简历</a><br>  
      </details>
      <details>
 		<summary>招聘管理</summary>
-		<a href="" target="in">查看招聘</a><br>
-		<a href="" target="in">审核招聘</a><br>  
+		<a href="${path}/RecruitServlet?ask=verifyrecruit" target="in">审核招聘</a><br>  
+     </details>
+     <details>
+		<summary>雇佣管理</summary>
+		<a href="${path}/HireServlet?ask=check" target="in">查看雇佣</a><br>  
      </details>
       <details>
 		<summary>状态管理</summary>

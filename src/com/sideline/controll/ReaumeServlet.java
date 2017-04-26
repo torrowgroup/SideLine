@@ -1,3 +1,4 @@
+
 package com.sideline.controll;
 
 import java.io.IOException;
@@ -70,7 +71,7 @@ public class ReaumeServlet extends HttpServlet {
 		        forward = "/WEB-INF/jsp/updatereaume.jsp";
 		}
 		
-		else if(ask.equals("delet")){
+		else if(ask.equals("delet")||ask.equals("deletid")){
 			PrintWriter out = response.getWriter();
 			String id=request.getParameter("id");
 			boolean bool=false;
@@ -79,15 +80,40 @@ public class ReaumeServlet extends HttpServlet {
 			} catch (Exception e) {				
 				e.printStackTrace();
 			}
-			if(bool==true){
-				out.println("删除成功");
-				response.setHeader("refresh", "2;url=/SideLine/ReaumeServlet?ask=checkreaume");	
-			}else{
-				out.println("删除失败");
-				response.setHeader("refresh", "2;url=/SideLine/ReaumeServlet?ask=checkreaume");	
+			if(ask.equals("delet")){
+				if(bool==true){
+					out.println("删除成功");
+					response.setHeader("refresh", "2;url=/SideLine/ReaumeServlet?ask=checkreaume");	
+				}else{
+					out.println("删除失败");
+					response.setHeader("refresh", "2;url=/SideLine/ReaumeServlet?ask=checkreaume");	
+				}
+			}
+			else if(ask.equals("deletid")){
+				if(bool==true){
+					out.println("删除成功");
+					response.setHeader("refresh", "2;url=/SideLine/ReaumeServlet?ask=check");	
+				}else{
+					out.println("删除失败");
+					response.setHeader("refresh", "2;url=/SideLine/ReaumeServlet?ask=check");	
+				}
 			}
 			return;
-		} 
+		}
+		
+		else if(ask.equals("check")){
+			ArrayList<Reaume> list =new ArrayList<Reaume>();		
+			try {
+				list = (ArrayList<Reaume>) new ReaumeService().selectall();
+				for(int i=0;i<list.size();i++){
+					System.out.println(list.get(i));
+				}	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		        request.setAttribute("list",list);
+		        forward = "/WEB-INF/jsp/allreaume.jsp";
+		}
 		request.getRequestDispatcher(forward).forward(request, response);
 		
 	}

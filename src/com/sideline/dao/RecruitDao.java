@@ -49,6 +49,7 @@ public class RecruitDao extends DaoBase<Recruit>{
 			 for(int i=0;i<lists.size();i++){
 				 if(lists.get(i).getAllow().equals("否")){
 					 lists.remove(i);
+					 i--;
 				 }
 			 } 
 		 }
@@ -60,6 +61,7 @@ public class RecruitDao extends DaoBase<Recruit>{
 			 for(int i=0;i<lists.size();i++){
 				 if(lists.get(i).getAllow().equals("是")){
 					 lists.remove(i);
+					 i--;
 				 }
 			 } 
 		 }

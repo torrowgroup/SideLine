@@ -50,5 +50,11 @@ public class ReaumeDao extends DaoBase<Reaume> {
 		}
 		return reaume;
 	}
+
+	public List<Reaume> selectall() throws Exception {
+		List<Reaume> list =new ArrayList<Reaume>();		
+		list=(List<Reaume>) this.selectAll();
+		return list;
+	}
 	
 }

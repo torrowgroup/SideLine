@@ -13,7 +13,6 @@ public class MysqlLink {
 	    	 String password="root";	
 	    	 Class.forName(driver);//加载数据库驱动
 	         conn=DriverManager.getConnection(url,user,password);//获取数据库连接
-
 			 if (conn != null) {
 					System.out.println("数据库连接成功");
 			 }

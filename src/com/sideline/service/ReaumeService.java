@@ -31,5 +31,8 @@ public class ReaumeService {
 	public Reaume selectOnesReaume(User user) throws Exception{	//查找个人发出的最新简历
 		return new ReaumeDao().selectOnes(user);
 	}
+	public List<Reaume> selectall() throws Exception {
+		return new ReaumeDao().selectall();
+	}
 	
 }
