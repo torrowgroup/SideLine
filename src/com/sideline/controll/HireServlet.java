@@ -20,7 +20,7 @@ import com.sideline.service.RecruitService;
 @WebServlet("/HireServlet")
 public class HireServlet extends HttpServlet {
 	
-	//推送
+	//推送基本完成
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String username = (String) request.getSession().getAttribute("username");
     	String hirePrompt = null;
