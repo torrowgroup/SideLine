@@ -75,4 +75,14 @@ public class RecruitDao extends DaoBase<Recruit>{
 		List<Recruit> lists = (List<Recruit>) this.executeFindSql(sql);
 		return lists.get(0);
 	}
+	public List<Recruit> selectTime(String time) throws Exception {		//请求为按时间查询
+		String sql = "select * from Recruit where time ='"+time+"'";
+		List<Recruit> lists = (List<Recruit>) this.executeFindSql(sql);
+		return lists;
+	}
+	public List<Recruit> selectDirection(String location) throws Exception {	//请求为按地点查询
+		String sql = "select * from Recruit where location ='"+location+"'";
+		List<Recruit> lists = (List<Recruit>) this.executeFindSql(sql);
+		return lists;
+	}
 }

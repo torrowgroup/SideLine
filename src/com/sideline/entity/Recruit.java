@@ -1,5 +1,7 @@
 package com.sideline.entity;
 
+import java.util.List;
+
 public class Recruit {
 	private String id;
 	private String username;
@@ -138,8 +140,6 @@ public class Recruit {
 				+ ", requirement=" + requirement + ", phone=" + phone + ", time=" + time + ", location=" + location
 				+ ", salary=" + salary + ", allow=" + allow + "]";
 
-	}	
-
-
+	}
 
 }

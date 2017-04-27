@@ -14,8 +14,7 @@
 </head>
 <body>
 	<center>
-			<form
-				action="${path}/LoginServlet?ask=login" method="post" target="_top" onsubmit="return check()">
+			<form action="${path}/LoginServlet?ask=login" method="post" target="_top" onsubmit="return check()">
 				<p class="main">
 					<lable>用户名:</lable>
 					<input name="username" id="username" placeholder="请输入用户名" autocomplete><br>
@@ -31,6 +30,19 @@
 				<a href="javascript:reloadCode();">看不清楚</a><br>
 				 <input type="submit" value="登录">
 				 <a href="appeal.jsp">找回密码</a>
+			</form>
+		</center>
+		<center>
+			<form action="${path}/ResisterServlet" method="post" target="_top">
+				<p class="main">
+					<lable>用户名:</lable>
+					<input name="username" id="username" placeholder="请输入用户名" autocomplete><br>
+					<br>
+					<lable>密&nbsp;&nbsp;&nbsp;码:</lable>
+					<input type="password" name="password" id="password" placeholder="请输入密码" size="18"><br>
+					<br>
+				</p>
+				 <input type="submit" value="注册">
 			</form>
 		</center>
 </body>

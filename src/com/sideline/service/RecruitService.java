@@ -48,4 +48,10 @@ public class RecruitService {
 	public Recruit selectRecruitId(String recruitId) throws Exception {   //根据Id查询特定一个招聘表
 		return new RecruitDao().selectRecruitId(recruitId);
 	}
+	public List<Recruit> selectTime(String time) throws Exception {	//请求为按时间
+		return new RecruitDao().selectTime(time);
+	}
+	public List<Recruit> selectLocation(String location) throws Exception {	//请求为按地点
+		return new RecruitDao().selectDirection(location);
+	}
 }

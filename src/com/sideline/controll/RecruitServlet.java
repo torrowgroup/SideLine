@@ -37,7 +37,7 @@ public class RecruitServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			
 				forward = "/WEB-INF/jsp/deletrecruit.jsp";
-		}else if( ask.equals("update")){
+		} else if( ask.equals("update")){
 			String id=request.getParameter("id");
 			ArrayList list = new ArrayList<Recruit>();
 			try {
@@ -47,8 +47,7 @@ public class RecruitServlet extends HttpServlet {
 			}
 			request.setAttribute("list", list);
 			forward = "/WEB-INF/jsp/updaterecruit.jsp";
-		}
-		else if(ask.equals("verifyrecruit")){
+		} else if(ask.equals("verifyrecruit")){
 			ArrayList list = new ArrayList<Recruit>();
 			try {
 				list = (ArrayList) new RecruitService().selectNotAllowRecruit();
@@ -60,10 +59,7 @@ public class RecruitServlet extends HttpServlet {
 			}
 			request.setAttribute("list", list);
 			forward = "/WEB-INF/jsp/norecruit.jsp";
-		}
-		
-		
-		else if (ask.equals("delet")) {
+		} else if (ask.equals("delet")) {
 			PrintWriter out = response.getWriter();
 			String id = request.getParameter("id");
 			boolean bool = false;
@@ -111,6 +107,26 @@ public class RecruitServlet extends HttpServlet {
 				forward = "/WEB-INF/jsp/allowrecruit.jsp";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(ask.equals("time")){	//请求为按时间查询
+			String time = request.getParameter("time");
+			time = new String(time.getBytes("iso8859-1"), "utf-8"); 
+			System.out.println(time);
+			try {
+				List<Recruit> lists = new RecruitService().selectTime(time);
+				request.setAttribute("allAllowRecruit", lists);
+				forward = "/WEB-INF/jsp/allowrecruit.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(ask.equals("selectbylocation")){	//按地点查询
+			String location = request.getParameter("location");	//获得地点
+			try {
+				List<Recruit> lists = new RecruitService().selectLocation(location);
+				request.setAttribute("allAllowRecruit", lists);
+				forward = "/WEB-INF/jsp/allowrecruit.jsp";
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

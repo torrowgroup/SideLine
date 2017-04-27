@@ -82,10 +82,6 @@ public class DaoBase<T>{
 				return null;
 			}
 		}
-
-		
-		
-		
 		
 		// 执行查询语句
 		public List<T> executeFindSql(String sql, Object... obj) throws InstantiationException, IllegalAccessException {

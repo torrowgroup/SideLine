@@ -1,5 +1,7 @@
 package com.sideline.dao;
 
+import java.sql.SQLException;
+
 import com.sideline.base.DaoBase;
 import com.sideline.entity.User;
 
@@ -69,6 +71,14 @@ public class UserDao extends DaoBase<User>{
 			
 		}
 		return mark;
+	}
+	public boolean resister(User user) throws Exception {	//注册用户
+		String username = user.getUsername();
+		User lists = this.selectId(username);
+		if(lists==null){
+			return this.add(user);	
+		}
+		return false;
 	}
 
 }

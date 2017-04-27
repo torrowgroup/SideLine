@@ -6,11 +6,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+	td{
+		border: solid;
+	}
+</style>
 </head>
 <body>
 	<center>${recruitPrompt}</center>
+	<a href="${path}/RecruitServlet?ask=selectallowrecruit">全部招聘信息</a>
+	<details>
+		<summary>按时间查询</summary>
+		<a href="${path}/RecruitServlet?ask=time&time=上午">上午</a>
+		<a href="${path}/RecruitServlet?ask=time&time=下午">下午</a>
+		<a href="${path}/RecruitServlet?ask=time&time=全天">全天</a>
+	</details>
+	<details>
+		<summary>按地点查询</summary>
+		<a href="${path}/RecruitServlet?ask=selectbylocatiuon" name="location">北京</a>
+	</details>
 		<div>
-		 <table style="border: solid;">
+		 <table>
 			<tr>
 				<td>招聘单位（个人）</td>
 				<td>招聘人</td>
