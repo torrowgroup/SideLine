@@ -10,7 +10,7 @@
 <body>
 	<table width="1000" height="100" align="center" border="1">
 			<tr>
-				<td colspan="14" align="center">学生信息</td>
+				<td colspan="14" align="center">个人简历</td>
 			</tr>
 			<tr>
 				<td>id</td>

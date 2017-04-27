@@ -11,10 +11,6 @@ public class User {
 	private String location;
 	private String security;
 	private String answer;
-	
-
-	
-
 
 	public User() {
 		super();

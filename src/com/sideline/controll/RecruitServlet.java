@@ -89,6 +89,12 @@ public class RecruitServlet extends HttpServlet {
 					List<Recruit> lists1 = new RecruitService().selectAllowRecruit();
 					forward = "/WEB-INF/jsp/allowrecruit.jsp";
 				} else {
+					for(int i=0;i<lists.size();i++){
+						if(lists.get(i).getAllow().equals("否")){
+							lists.remove(i);
+							i--;
+						}
+					}
 					request.setAttribute("recommend", lists);
 					forward = "/WEB-INF/jsp/selectrecruit.jsp";
 				}

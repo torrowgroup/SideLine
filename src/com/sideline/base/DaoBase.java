@@ -57,7 +57,7 @@ public class DaoBase<T>{
 			}
 			
 		}
-		//根据ID查询个人简历的所有信息
+		//根据ID查询个人简历,资料的所有信息
 		public T findId(String username) throws Exception{
 			//获得子类所有的属性
 			Field[] fields=clazz.getDeclaredFields();				

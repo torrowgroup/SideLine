@@ -11,8 +11,7 @@ public class Hire {
 	private String seekerremark;
 	private String finish;
 
-
-
+	public Hire(){}
 	public Hire(String id, String unitid, String unit, String unitusername, String seekerid, String seekerusername,
 			String unitremark, String seekerremark,String finish) {
 		this.id = id;

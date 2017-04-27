@@ -23,7 +23,7 @@
      </details>
      <details>
 		<summary>雇佣管理</summary>
-		<a href="${path}/HireServlet?ask=check" target="in">查看雇佣</a><br>  
+		<a href="${path}/HireServlet?ask=checkall" target="in">查看雇佣</a><br>  
      </details>
       <details>
 		<summary>状态管理</summary>

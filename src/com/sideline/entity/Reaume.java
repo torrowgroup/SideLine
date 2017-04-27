@@ -15,8 +15,6 @@ public class Reaume {
 	public Reaume() {
 	}
 
-
-
 	public Reaume(String username, String name, String age, String sex, String location, String education,
 			String experience, String phone, String skill, String introduce) {
 		this.username = username;

@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
 				else if(mark==1){
 					request.getSession().setAttribute("username", username);
 					request.getRequestDispatcher("/WEB-INF/jsp/HomePage.jsp").forward(request, response);
+					return;
 				}
 				else if(mark==2){
 					userPrompt="密码错误，请重新输入";

@@ -1,4 +1,4 @@
-package com.sideline.controll;
+﻿package com.sideline.controll;
 
 import java.io.IOException;
 import java.util.List;
@@ -59,13 +59,81 @@ public class HireServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+    	} 
+    	else if(ask.equals("checkall")){
+    		try {
+				List<Hire> lists = new HireService().selectAllowRecruit();
+				request.setAttribute("lists", lists);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		forward = "/WEB-INF/jsp/allhire.jsp";
+
     	}
+    	
+    	
+    	
+    	else if(ask.equals("checkhire")||ask.equals("finish")){	//查找个人工作经历
+    		try {
+    			if(ask.equals("finish")){	//商家确认工作已完成
+			    	String hireid = request.getParameter("id");
+			    	int count = new HireService().finish(hireid);
+			   		hirePrompt = "确认完成失败";
+			   		if(count==1){
+			   			hirePrompt = "确认完成成功，工作结束";
+			   		}
+				}
+				List<Hire> lists1 = new HireService().selectOnesHire1(user);
+				List<Hire> lists2 = new HireService().selectOnesHire2(user);
+				List<Hire> lists3 = new HireService().selectOnesHire3(user);
+				List<Hire> lists4 = new HireService().selectOnesHire4(user);
+				request.setAttribute("oneselfHires1", lists1);
+				request.setAttribute("oneselfHires2", lists2);
+				request.setAttribute("oneselfHires3", lists3);
+				request.setAttribute("oneselfHires4", lists4);
+				forward = "/WEB-INF/jsp/oneselfhire.jsp";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(ask.equals("writeunitremark")){	//招聘者填写评语
+    		String id = request.getParameter("id");
+    		request.setAttribute("id", id);
+    		forward = "/WEB-INF/jsp/unitremark.jsp";
+    	} else if(ask.equals("writeseekerremark")){	//求职者填写评语
+    		String id = request.getParameter("id");
+    		request.setAttribute("id", id);
+    		forward = "/WEB-INF/jsp/seekerremark.jsp";
+    	}
+    	
     	request.setAttribute("hirePrompt", hirePrompt);
     	request.getRequestDispatcher(forward).forward(request, response);
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String id = request.getParameter("id");	//得到填写的是那个招聘表的id
+		String remark = request.getParameter("remark");
+		Hire hire = new Hire();
+		hire.setId(id);
+		String ask = request.getParameter("ask");
+		String hirePrompt = "填写失败";
+		String forward = null;
+		int count = 0;
+		if(ask.equals("unitremark")){	//招聘者填写的评语
+			hire.setUnitremark(remark);
+			count = new HireService().unitRemark(hire);
+			forward = "/WEB-INF/jsp/unitremark.jsp";
+		} else if(ask.equals("seekerremark")){  //求职者填写的评语
+			hire.setSeekerremark(remark);
+			count = new HireService().seekerRemark(hire);
+			forward = "/WEB-INF/jsp/seekerremark.jsp";
+		}
+		if(count == 1){
+			hirePrompt = "填写成功";
+		}
+		System.out.println(ask+" "+forward+" "+count);
+		request.setAttribute("hirePrompt", hirePrompt);
+		request.getRequestDispatcher(forward).forward(request, response);
 	}
 
 }

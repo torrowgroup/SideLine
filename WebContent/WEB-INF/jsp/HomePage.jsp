@@ -14,9 +14,8 @@
 		<summary>个人中心</summary>
 		<a href="${path}/UserServlet?ask=check" target="in">查看个人资料</a><br>
 		<a href="${path }/ReaumeServlet?ask=checkreaume" target="in">查看个人简历</a><br>
-		<a href="${path }/RecruitServlet?ask=checkrecruit" target="in">查看个人招聘</a>
-		<a href="${path }/HireServlet?ask=checkhire">查看工作经历</a>
-		<a href="${path}/HireServlet?ask">查看招聘经历</a>
+		<a href="${path }/RecruitServlet?ask=checkrecruit" target="in">查看个人招聘</a><br>
+		<a href="${path }/HireServlet?ask=checkhire" target="in"> 查看工作经历</a>
 		<a></a>    
      </details>
      

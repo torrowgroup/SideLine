@@ -30,6 +30,7 @@
 					src="${path}/ImageServlet">
 				<a href="javascript:reloadCode();">看不清楚</a><br>
 				 <input type="submit" value="登录">
+				 <a href="appeal.jsp">找回密码</a>
 			</form>
 		</center>
 </body>
