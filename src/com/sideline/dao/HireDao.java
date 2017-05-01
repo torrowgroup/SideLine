@@ -51,17 +51,29 @@ public class HireDao extends DaoBase<Hire> {
 	}
 
 
-	public int unitRemark(Hire hire) {	//商家填写评价
+	public int unitRemark(Hire hire) throws Exception {	//商家填写评价
 		String id = hire.getId();
 		String unitremark = hire.getUnitremark();
+		String sql1 = "select * from hire where id = '"+id+"'";
+		List<Hire> lists2 = this.executeFindSql(sql1);
+		String str = lists2.get(0).getUnitremark();
+		if(str!=null){
+			unitremark = str+unitremark;	
+		}
 		String sql = "update hire set unitremark = '"+unitremark+" ' where id= '"+id+"'";
 		return this.executeSql(sql);
 	}
 
 
-	public int seerkerRemark(Hire hire) {
+	public int seerkerRemark(Hire hire) throws Exception {
 		String id = hire.getId();
 		String seekerremark = hire.getSeekerremark();
+		String sql1 = "select * from hire where id = '"+id+"'";
+		List<Hire> lists2 = this.executeFindSql(sql1);
+		String str = lists2.get(0).getSeekerremark();
+		if(str!=null){
+			seekerremark = str+seekerremark;	
+		}
 		String sql = "update hire set seekerremark = '"+seekerremark+" ' where id= '"+id+"'";
 		return this.executeSql(sql);
 	}

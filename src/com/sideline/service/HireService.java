@@ -28,10 +28,10 @@ public class HireService {
 	public int finish(String hireid) {	//确认完成工作
 		return new HireDao().finish(hireid);
 	}
-	public int unitRemark(Hire hire) {	//招聘者填写评价
+	public int unitRemark(Hire hire) throws Exception {	//招聘者填写评价
 		return new HireDao().unitRemark(hire);
 	}
-	public int seekerRemark(Hire hire) {	//求职者填写评价
+	public int seekerRemark(Hire hire) throws Exception {	//求职者填写评价
 		return new HireDao().seerkerRemark(hire);
 	}
 	public List<Hire> selectAllowRecruit() throws Exception {

@@ -12,10 +12,10 @@
 <div class="container">
   <div class="row">
      <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
-             <a> <button class="btn btn-primary" type="button"><img src="images/yonghuzengjia.png" width="25" height="25">增加用户</button></a>
+             <a> <button class="btn btn-primary" type="button">用户填写评语</button></a>
         </div>
         <div class="col-lg-3 col-lg-offset-5 col-md-5 scol-md-offset-3 col-xs-5  col-xs-offset-1">
-            <p>当前位置：我要求职>>填写简历</p>
+            <p>当前位置：我要求职>>填写评语</p>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-3">
             <p>欢迎登录本系统</p>
