@@ -14,7 +14,7 @@
     <filter-class>com.sideline.filter.SideLineFilter</filter-class>
     <init-param>
       <param-name>noPath</param-name>
-      <param-value>index.jsp;resister.jsp;managerpage.jsp;appeal.jsp;HomePage.css;LoginServlet;ResisterServlet;ImageServlet;staticFile</param-value>
+      <param-value>index.jsp;resister.jsp;managerpage.jsp;appeal.jsp;HomePage.css;LoginServlet;LogoutServlet;ResisterServlet;ImageServlet;staticFile</param-value>
     </init-param>
   </filter>
   <filter-mapping>

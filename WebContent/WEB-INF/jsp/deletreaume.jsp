@@ -1,48 +1,115 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    
+    <!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<title>查看个人招聘</title>
+<link rel="stylesheet" href="./staticFile/css/bootstrap.css">
+<link rel="stylesheet" href="./staticFile/css/person-recruit.css">
 </head>
+
+
 <body>
-	<table width="1000" height="100" align="center" border="1">
-			<tr>
-				<td colspan="14" align="center">个人简历</td>
-			</tr>
-			<tr>
-				<td>id</td>
-				<td>账户</td>
-				<td>名字</td>
-				<td>年龄</td>
-				<td>性别</td>
-				<td>地址</td>
-				<td>最高学历</td>
-				<td>工作经验</td>
-				<td>手机号</td>
-				<td>技能</td>
-				<td>自我介绍</td>
-				<td>操作</td>
-			</tr>
-			 <c:forEach items="${requestScope.list}" var="item">  
+<div class="container">
+  <div class="row">
+     <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+             <a> <button class="btn btn-primary" type="button">个人简历</button></a>
+        </div>
+        <div class="col-lg-3 col-lg-offset-5 col-md-5 scol-md-offset-3 col-xs-5  col-xs-offset-1">
+            <p>当前位置：个人中心>>查看个人简历</p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-3">
+            <p>欢迎登录本系统</p>
+        </div>
+  </div>
+</div>
+<div id="body-one">
+<!--   <div class="table-responsive"> -->
+    <table class="table table-bordered table-hover table-striped">
+      <caption align="top" style="text-align:center;"><strong>个人简历</strong></caption>  
+      <tr class="two">
+         <th>id</th>
+         <th>账户</th>
+         <th>名字</th>
+         <th>年龄</th>
+         <th>性别</th>
+         <th>地址</th>
+         <th>最高学历</th>
+         <th>工作经验</th>
+         <th>手机号</th>
+         <th>技能</th>
+         <th>自我介绍</th>
+         <th>编辑</th>
+       </tr>
+      <tbody>
+       	 <c:forEach items="${requestScope.list}" var="item">  
 	            <tr>  
-	                <td><input name="id" value="${item.id}" size="1"></td>
-	                <td><input name="username" value="${item.username}" size="6"></td>
-	                <td><input name="name" value="${item.name}" size="8"></td>
-	                <td><input name="age" value="${item.age}" size="6"></td>
-	                <td><input name="sex" value="${item.sex}" size="8"></td>
-	                <td><input name="location" value="${item.location}" size="8"></td>
-	                <td><input name="education" value="${item.education}" size="6"></td>
-	                <td><input name="experience" value="${item.experience}" size="2"></td>
-	                <td><input name="phone" value="${item.phone}" size="2"></td>
-	                <td><input name="skill" value="${item.skill}" size="6"></td>
-	                <td><input name="introduce" value="${item.introduce}" size="6"></td>
-	                <td><a href="${path}/ReaumeServlet?id=${item.id}&ask=delet">删除</a></td>
-	                <td><a href="${path}/ReaumeServlet?id=${item.id}&ask=update">修改</a></td>      
+	                <td>${item.id}</td>
+	                <td>${item.username}</td>
+	                <td>${item.name}</td>
+	                <td>${item.age}</td>
+	                <td>${item.sex}</td>
+	                <td>${item.location}</td>
+	                <td>${item.education}</td>
+	                <td>${item.experience}</td>
+	                <td>${item.phone}</td>
+	                <td>${item.skill}</td>
+	                <td>${item.introduce}</td>
+	                <td  class="four"> <img src="./staticFile/images/bian.png" style="width:25px;height:25px;"><a href="${path}/ReaumeServlet?id=${item.id}&ask=delet">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./staticFile/images/lajitong.png" style="width:25px;height:25px;"><a href="${path}/ReaumeServlet?id=${item.id}&ask=update">修改</a></td>      
 	            </tr>  
-        	</c:forEach>  
+        	</c:forEach>
+      </tbody>
     </table>
+</div>
 </body>
 </html>
+    
+    
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+<!-- <html> -->
+<!-- <head> -->
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+<!-- <title>Insert title here</title> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<table width="1000" height="100" align="center" border="1"> -->
+<!-- 			<tr> -->
+<!-- 				<td colspan="14" align="center">个人简历</td> -->
+<!-- 			</tr> -->
+<!-- 			<tr> -->
+<!-- 				<td>id</td> -->
+<!-- 				<td>账户</td> -->
+<!-- 				<td>名字</td> -->
+<!-- 				<td>年龄</td> -->
+<!-- 				<td>性别</td> -->
+<!-- 				<td>地址</td> -->
+<!-- 				<td>最高学历</td> -->
+<!-- 				<td>工作经验</td> -->
+<!-- 				<td>手机号</td> -->
+<!-- 				<td>技能</td> -->
+<!-- 				<td>自我介绍</td> -->
+<!-- 				<td>操作</td> -->
+<!-- 			</tr> -->
+<%-- 			 <c:forEach items="${requestScope.list}" var="item">   --%>
+<!-- 	            <tr>   -->
+<%-- 	                <td><input name="id" value="${item.id}" size="1"></td> --%>
+<%-- 	                <td><input name="username" value="${item.username}" size="6"></td> --%>
+<%-- 	                <td><input name="name" value="${item.name}" size="8"></td> --%>
+<%-- 	                <td><input name="age" value="${item.age}" size="6"></td> --%>
+<%-- 	                <td><input name="sex" value="${item.sex}" size="8"></td> --%>
+<%-- 	                <td><input name="location" value="${item.location}" size="8"></td> --%>
+<%-- 	                <td><input name="education" value="${item.education}" size="6"></td> --%>
+<%-- 	                <td><input name="experience" value="${item.experience}" size="2"></td> --%>
+<%-- 	                <td><input name="phone" value="${item.phone}" size="2"></td> --%>
+<%-- 	                <td><input name="skill" value="${item.skill}" size="6"></td> --%>
+<%-- 	                <td><input name="introduce" value="${item.introduce}" size="6"></td> --%>
+<%-- 	                <td><a href="${path}/ReaumeServlet?id=${item.id}&ask=delet">删除</a></td> --%>
+<%-- 	                <td><a href="${path}/ReaumeServlet?id=${item.id}&ask=update">修改</a></td>       --%>
+<!-- 	            </tr>   -->
+<%--         	</c:forEach>   --%>
+<!--     </table> -->
+<!-- </body> -->
+<!-- </html> -->

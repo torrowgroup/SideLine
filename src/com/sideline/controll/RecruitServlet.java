@@ -35,8 +35,7 @@ public class RecruitServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			request.setAttribute("list", list);
-			
-				forward = "/WEB-INF/jsp/deletrecruit.jsp";
+			forward = "/WEB-INF/jsp/deletrecruit.jsp";
 		} else if( ask.equals("update")){
 			String id=request.getParameter("id");
 			ArrayList list = new ArrayList<Recruit>();
@@ -51,9 +50,6 @@ public class RecruitServlet extends HttpServlet {
 			ArrayList list = new ArrayList<Recruit>();
 			try {
 				list = (ArrayList) new RecruitService().selectNotAllowRecruit();
-				for(int i=0;i<list.size();i++){
-					System.out.println(list.get(i));
-				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -98,7 +94,7 @@ public class RecruitServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			System.out.println(forward+"forward");
-		} else if(ask.equals("writerecruit")){		//请求为我要招聘
+		} else if(ask.equals("writerecruit")){		//请求为填写招聘表
 			forward = "/WEB-INF/jsp/writerecruit.jsp";
 		} else if(ask.equals("selectallowrecruit")){	//首页查看所有发布的招聘表
 			try {
@@ -121,7 +117,8 @@ public class RecruitServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(ask.equals("selectbylocation")){	//按地点查询
-			String location = request.getParameter("location");	//获得地点
+			String location = new String(request.getParameter("location").getBytes("iso-8859-1"),"utf-8");//获得地点 
+			System.out.println(location+"location");
 			try {
 				List<Recruit> lists = new RecruitService().selectLocation(location);
 				request.setAttribute("allAllowRecruit", lists);
@@ -185,8 +182,7 @@ public class RecruitServlet extends HttpServlet {
 		}
 		else if(ask.equals("updateno")){
 			String id = request.getParameter("id");
-			Recruit recruit = new Recruit(id, username, unit, name, work, requirement, phone, time, location, salary,
-					"是");
+			Recruit recruit = new Recruit(id, username, unit, name, work, requirement, phone, time, location, salary,"是");
 			boolean bool = false;
 			PrintWriter out = response.getWriter();
 			try {

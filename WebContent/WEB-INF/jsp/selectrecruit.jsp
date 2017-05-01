@@ -1,27 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!doctype html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<title>查看招聘工作</title>
+<link rel="stylesheet" href="./staticFile/css/bootstrap.css">
+<link rel="stylesheet" href="./staticFile/css/recruit.css">
 </head>
+
 <body>
-	<center>${hirePrompt}</center>
-	<div>
-		<table>
-			<tr>
-				<td>招聘单位（个人）</td>
-				<td>招聘人</td>
-				<td>工作</td>
-				<td>经验要求</td>
-				<td>工作时间</td>
-				<td>地区</td>
-				<td>薪资/小时</td>
-				<td>联系电话</td>
-			</tr>
-			<c:forEach items="${recommend}" var="recommends">
+<div class="container">
+  <div class="row">
+     <div class="col-lg-1 col-lg-offset-1 col-md-2  col-xs-2 col-xs-offset-1">
+             <a> <button class="btn btn-primary" type="button">查看招聘</button></a>
+        </div>
+        <div class="col-lg-3 col-lg-offset-5 col-md-5 scol-md-offset-3 col-xs-5  col-xs-offset-1">
+            <p>当前位置：首页>>查看招聘</p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-3">
+            <p>欢迎登录本系统</p>
+        </div>
+  </div>
+</div>
+<center>${recruitPrompt}</center>
+<div id="body-one">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr class="two">
+         <th>招聘单位（个人）</th>
+         <th>招聘人</th>
+         <th>工作</th>
+         <th>经验要求</th>
+         <th>工作时间</th>
+         <th>地区</th>
+         <th>薪资/小时</th>
+         <th>联系电话</th>
+         <th>操作</th>
+       </tr>
+      </thead>
+      <tbody>
+      			<c:forEach items="${recommend}" var="recommends">
 				<tr>
 					<td>${recommends.unit}</td>
 					<td>${recommends.name}</td>
@@ -31,10 +53,13 @@
 					<td>${recommends.location}</td>
 					<td>${recommends.salary}</td>
 					<td>${recommends.phone}</td>
-					<td><a href="${path}/HireServlet?recruitId=${recommends.id}&ask=apply">申请</a></td>
+					<td><a class="btn btn-primary" href="${path}/HireServlet?recruitId=${recommends.id}&ask=apply">申请</a></td>
 				</tr>
 			</c:forEach>
-		</table>
-	</div>
+      </tbody>
+    </table>
+</div>
+
+</div>
 </body>
 </html>
