@@ -59,7 +59,7 @@
     </table>
 </div>
 </div>
-=======
+<%-- =======
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -96,6 +96,6 @@
 		            </tr> 
         	</c:forEach>  
     </table>
->>>>>>> fb78e5a7fa32067e8acae90b63380fd4ba6ac4df
+>>>>>>> fb78e5a7fa32067e8acae90b63380fd4ba6ac4df --%>
 </body>
 </html>
