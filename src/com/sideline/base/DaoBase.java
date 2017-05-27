@@ -14,7 +14,13 @@ import java.util.List;
 
 import com.sideline.util.MysqlLink;
 
-
+/**
+ * 厉害了我的马
+ * @author 马黎明
+ *
+ * @param <T>
+ * 2017年5月27日下午5:30:47
+ */
 public class DaoBase<T>{
 	private Class<T> clazz;
 	private String tableName;// 表名
