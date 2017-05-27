@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
        
-       <!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -83,7 +83,7 @@ if(mylink2.value == 21)
 
 <div id="body-one">
  <div class="con-one">
-   
+ 
    <div class="row">
       <div class="col-lg-3 col-lg-offset-3 col-md-4 col-md-offset-3 col-xs-3 col-xs-offset-3" style="margin-left:31%;">
         <div class="col-lg-6 col-md-6  col-xs-6">
@@ -158,6 +158,9 @@ if(mylink2.value == 21)
 					<td><a href="${path}/HireServlet?recruitId=${allAllowRecruits.id}&ask=apply">申请</a></td>
 				</tr>
 			</c:forEach>
+			<tr>
+				<td colspan="9" style="text-align: center;color: red">${hirePrompt }</td>
+			</tr>
       </tbody>
     </table>
 </div>

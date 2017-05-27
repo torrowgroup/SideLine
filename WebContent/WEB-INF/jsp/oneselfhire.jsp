@@ -27,28 +27,28 @@
 </div>
 <center>${hirePrompt}</center>
 <div id="body-one">
-  <div class="table-responsive">
-  <p>身为招聘方，未结束的工作</p>
-    <table class="table table-bordered table-hover table-striped">
-    <thead>
-      <tr class="two">
-         <th>招聘单位（个人）</th>
-         <th>求职者</th>
-         <th>操作</th>
-       </tr>
-      </thead>
-      <tbody>
+<!--   <div class="table-responsive"> -->
+<!--   <p>身为招聘方，未结束的工作</p> -->
+<!--     <table class="table table-bordered table-hover table-striped"> -->
+<!--     <thead> -->
+<!--       <tr class="two"> -->
+<!--          <th>招聘单位（个人）</th> -->
+<!--          <th>求职者</th> -->
+<!--          <th>操作</th> -->
+<!--        </tr> -->
+<!--       </thead> -->
+<!--       <tbody> -->
       
-      <c:forEach items="${oneselfHires1}" var="oneselfHire">
-			<tr>
-				<td>${oneselfHire.unit}</td>
-				<td>${oneselfHire.seekerusername}</td>
-				<td><a class="btn btn-primary"  href="${path}/HireServlet?ask=finish&id=${oneselfHire.id}">工作完成</a></td>
-			</tr>
-		</c:forEach>
-      </tbody>
-    </table>
- </div>
+<%--       <c:forEach items="${oneselfHires1}" var="oneselfHire"> --%>
+<!-- 			<tr> -->
+<%-- 				<td>${oneselfHire.unit}</td> --%>
+<%-- 				<td>${oneselfHire.seekerusername}</td> --%>
+<%-- 				<td><a class="btn btn-primary"  href="${path}/HireServlet?ask=finish&id=${oneselfHire.id}">工作完成</a></td> --%>
+<!-- 			</tr> -->
+<%-- 		</c:forEach> --%>
+<!--       </tbody> -->
+<!--     </table> -->
+<!--  </div> -->
   <div class="table-responsive">
   <p>身为求职方，未结束的工作</p>
     <table class="table table-bordered table-hover table-striped">
@@ -66,32 +66,6 @@
 				<td>${oneselfHire.unit}</td>
 				<td>${oneselfHire.seekerusername}</td>
 				<td>工作未完成</td>
-			</tr>
-		</c:forEach>
-      </tbody>
-    </table>
- </div>
- <div class="table-responsive">
-  <p>身为招聘方，已结束的工作</p>
-    <table class="table table-bordered table-hover table-striped">
-    <thead>
-      <tr class="two">
-         <th>招聘单位（个人）</th>
-         <th>求职者</th>
-         <td>我的评语</td>
-		 <td>求职者评语</td>
-         <th>操作</th>
-       </tr>
-      </thead>
-      <tbody>
-       
-       <c:forEach items="${oneselfHires3}" var="oneselfHire">
-			<tr>
-				<td>${oneselfHire.unit}</td>
-				<td>${oneselfHire.seekerusername}</td>	
-				<td>${oneselfHire.unitremark}</td>
-				<td>${oneselfHire.seekerremark}</td>
-				<td><a class="btn btn-primary" href="${path}/HireServlet?ask=writeunitremark&id=${oneselfHire.id}">填写评语</a></td>
 			</tr>
 		</c:forEach>
       </tbody>

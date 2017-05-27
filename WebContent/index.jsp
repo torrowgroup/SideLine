@@ -35,14 +35,14 @@
                     <br>
                     <div class="input-three">
                                  <label for="password" >密码</label>
-                                 <input type="text" name="password" class="form-control"  placeholder="请输入密码">
+                                 <input type="password" name="password" class="form-control"  placeholder="请输入密码">
                     </div>
                     <div class="input-four">
                        <button class="btn  btn-primary one" type="submit">注&nbsp;&nbsp;册</button>
                        <button class="btn  btn-primary" type="reset">重&nbsp;&nbsp;置</button>
                     </div>
                 </form>
-                 </div>
+                 </div>  
                  <div id="list-two">
                  <form class="form-inline"  action="${path}/LoginServlet?ask=login" method="post" target="_top" onsubmit="return check()"> 
                     <div class="input-two">
@@ -52,7 +52,7 @@
                      <br>
                     <div class="input-three">
                                  <label for="password" >密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
-                                 <input type="text" name="password" class="form-control"  placeholder="请输入密码">
+                                 <input type="password" name="password" class="form-control"  placeholder="请输入密码">
                     </div>
                      <br>
                     <div class="input-four">

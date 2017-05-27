@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="./staticFile/css/bootstrap.css">
 <link rel="stylesheet" href="./staticFile/css/resume.css">
 </head>
-
 <body>
 <div class="container">
   <div class="row">
@@ -27,14 +26,14 @@
 <div id="body-one">
  <div class="container-one">
  <center>${reaumePrompt}</center>
- <form action="${path}/ReaumeServlet?ask=write" method="post">
+ <form action="${path}/ReaumeServlet?ask=write" method="post" onsubmit="return check()">
 	   <div class="row">
 	      <div class="col-lg-3 col-lg-offset-3 col-md-3 col-md-offset-2 col-xs-3 col-xs-offset-2" style="margin-left:28%;">
 	        <div class="col-lg-5 col-md-6  col-xs-6">
 	            <span>姓名：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6">
-	           <input type="text" class="form-control" name="name">
+	           <input type="text" class="form-control" name="name" id="name">
 	         </div>
 	      </div>
 	      <div class="col-lg-3 col-md-3  col-xs-3">
@@ -42,7 +41,7 @@
 	            <span>年龄：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6" style="margin-left:-8%;">
-	           <input type="text" class="form-control" name="age">
+	           <input type="text" class="form-control" name="age" id="age">
 	         </div>
 	      </div>
 	   </div>
@@ -52,7 +51,7 @@
 	            <span>性别：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6">
-	            <select style="width:125px;height:33px;margin-left:-50px;" name="sex">
+	            <select style="width:125px;height:33px;margin-left:-50px;" name="sex" id="sex">
 	          		<option value="男">男</option>
 	          		<option value="女">女</option>
 	          	</select>
@@ -63,8 +62,7 @@
 	            <span>地区：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6" style="margin-left:-8%;">
-<!-- 	           <input type="text" class="form-control" name="location"> -->
-				<select style="width:125px;height:33px;margin-left:-50px;" name="location" > 
+				<select style="width:125px;height:33px;margin-left:-50px;" name="location" id="location" > 
 		          		<option value="北京市">北京市</option>
 		          		<option value="上海市">上海市</option>
 		          		<option value="广州市" >广州市</option>
@@ -95,7 +93,7 @@
 	            <span>最好学历：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6">
-	           	<select style="width:125px;height:33px;margin-left:-20px;" name="education">
+	           	<select style="width:125px;height:33px;margin-left:-20px;" name="education" id="education">
 	          		<option value="大学">大学</option>
 	          		<option value="高中">高中</option>
 	          	</select>
@@ -106,7 +104,7 @@
 	            <span>工作经验：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6">
-	          	<select style="width:125px;height:33px;margin-left:-40px;" name="experience" >
+	          	<select style="width:125px;height:33px;margin-left:-40px;" name="experience" id="experience">
 	          		<option value="无">无</option>
 	          		<option value="一">一年</option>
 	          		<option value="两">两年</option>
@@ -120,17 +118,15 @@
 	            <span>电话：</span>
 	        </div>
 	        <div class="col-lg-6 col-md-6  col-xs-6">
-	           <input type="text" class="form-control" name="phone">
+	           <input type="text" class="form-control" name="phone" id="phone">
 	         </div>
 	      </div>
 	      <div class="col-lg-3 col-md-3  col-xs-3">
 	        <div class="col-lg-6 col-md-6  col-xs-6">
 	            <span>意向：</span>
 	        </div>
-	        <div class="col-lg-6 col-md-6  col-xs-6" style="margin-left:-8%;"> 
-<!-- 	           <input type="text" class="form-control" name="skill"> -->
-
-				<select style="width:125px;height:33px;margin-left:-40px;" name="skill" >
+	        <div class="col-lg-6 col-md-6  col-xs-6" style="margin-left:-8%;">
+				<select style="width:125px;height:33px;margin-left:-40px;" name="skill" id="skill" >
 	          		<option value="网上兼职">网上兼职</option>
 	          		<option value="钟点工">钟点工</option>
 	          		<option value="礼仪">礼仪</option>
@@ -156,13 +152,14 @@
 	     </div>
 	    <div class="row">
 	     <div class="col-lg-1 col-lg-offset-9 col-md-1 col-md-offset-9 col-xs-1 col-xs-offset-9" style="margin-top:20px;">
-	         <button class="btn btn-primary" type="submit">提&nbsp;&nbsp;交</button>
+	         <button class="btn btn-primary" id="submit" type="submit">提&nbsp;&nbsp;交</button>
 	      </div>
 	    </div>
     </form>
    </div>
  </div>
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="./staticFile/js/jquery-2.1.4.js"></script>
+<script src="./staticFile/js/bootstrap.js"></script>
+<script src="./staticFile/js/checkforms.js" charset="utf-8" ></script>
 </body>
 </html>

@@ -25,9 +25,10 @@
         </div>
   </div>
 </div>
-<center>${recruitPrompt}</center>
+
 <div id="body-one">
   <div class="table-responsive">
+  	
     <table class="table table-bordered table-hover table-striped">
     <thead>
       <tr class="two">
@@ -42,8 +43,8 @@
          <th>操作</th>
        </tr>
       </thead>
-      <tbody>
-      			<c:forEach items="${recommend}" var="recommends">
+      <tbody>      	
+      		<c:forEach items="${recommend}" var="recommends">
 				<tr>
 					<td>${recommends.unit}</td>
 					<td>${recommends.name}</td>
@@ -56,6 +57,7 @@
 					<td><a class="btn btn-primary" href="${path}/HireServlet?recruitId=${recommends.id}&ask=apply">申请</a></td>
 				</tr>
 			</c:forEach>
+			<tr style="height:80px"><td colspan="9" ><center style="color:red">${recruitPrompt}</center></td></tr>
       </tbody>
     </table>
 </div>
