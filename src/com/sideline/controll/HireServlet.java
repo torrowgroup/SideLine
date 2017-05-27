@@ -21,12 +21,14 @@ import com.sideline.service.RecruitService;
 public class HireServlet extends HttpServlet {
 	
 	//推送基本完成
+	//推送
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String username = (String) request.getSession().getAttribute("username");
     	String hirePrompt = null;
     	User user = new User();
     	user.setUsername(username);
     	String ask = request.getParameter("ask");
+    	System.out.println(ask);
     	String forward = null;
     	if(ask.equals("apply")){	//请求为申请工作
     		String recruitId = request.getParameter("recruitId");	//得到招聘表ID
@@ -123,8 +125,16 @@ public class HireServlet extends HttpServlet {
     		String id = request.getParameter("id");
     		request.setAttribute("id", id);
     		forward = "/WEB-INF/jsp/seekerremark.jsp";
+    	} else if(ask.equals("checkall")){
+    		try {
+				List<Hire> lists = new HireService().selectAllowRecruit();
+				request.setAttribute("lists", lists);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		forward = "/WEB-INF/jsp/allhire.jsp";
     	}
-    	
     	request.setAttribute("hirePrompt", hirePrompt);
     	request.getRequestDispatcher(forward).forward(request, response);
 	}

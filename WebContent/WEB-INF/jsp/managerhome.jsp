@@ -14,5 +14,33 @@
     <frame name="mainFrame" src="/SideLine/ManagerServlet?ask=checkmanager" scrolling="yes" frameborder="1" /></frameset>
     <noframes></noframes>
 <body>
+<<<<<<< HEAD
+=======
+	<div id="function">
+	<details>
+		<summary>个人中心</summary>
+		<a href="${path}/ManagerServlet?ask=checkmanager" target="in">查看个人资料</a><br>    
+     </details>
+     <details>
+		<summary>求职管理</summary>
+		<a href="${path}/ReaumeServlet?ask=check" target="in">查看简历</a><br>  
+     </details>
+     <details>
+		<summary>招聘管理</summary>
+		<a href="${path}/RecruitServlet?ask=verifyrecruit" target="in">审核招聘</a><br>  
+     </details>
+     <details>
+		<summary>雇佣管理</summary>
+		<a href="${path}/HireServlet?ask=checkall" target="in">查看雇佣</a><br>  
+     </details>
+      <details>
+		<summary>状态管理</summary>
+		<a href="${path}/LogoutServlet?ask=exitmanager">退出</a>
+     </details>           
+	</div>
+	<div id="view">
+  		<iframe src="" width=100% height="500" name="in"></iframe>
+	</div>
+>>>>>>> fb78e5a7fa32067e8acae90b63380fd4ba6ac4df
 </body>
 </html>>

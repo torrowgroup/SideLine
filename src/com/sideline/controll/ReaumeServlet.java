@@ -103,9 +103,6 @@ public class ReaumeServlet extends HttpServlet {
 			ArrayList<Reaume> list =new ArrayList<Reaume>();		
 			try {
 				list = (ArrayList<Reaume>) new ReaumeService().selectall();
-				for(int i=0;i<list.size();i++){
-					System.out.println(list.get(i));
-				}	
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

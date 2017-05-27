@@ -23,9 +23,7 @@ public class LogoutServlet extends HttpServlet {
 		}
 		else if(ask.equals("exitmanager")){
 			request.getRequestDispatcher("/WEB-INF/jsp/managerlogout.jsp").forward(request, response);
-		}
-
-		else if(ask.equals("delet")){
+		}else if(ask.equals("delet")){
 			request.getSession().invalidate();
 			response.setHeader("Cache-Control", "no-cache");
 	        response.setHeader("pragma", "no-cache");
@@ -41,7 +39,6 @@ public class LogoutServlet extends HttpServlet {
 			//request.getRequestDispatcher("/RearLogin.jsp").forward(request, response);
 			response.sendRedirect("/SideLine/managerpage.jsp");
 		}
-
 	}
 
 }
