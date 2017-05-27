@@ -4,7 +4,6 @@ import com.sideline.base.DaoBase;
 import com.sideline.entity.Hire;
 import com.sideline.entity.User;
 import com.sideline.entity.Reaume;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,11 +78,9 @@ public class HireDao extends DaoBase<Hire> {
 		return this.executeSql(sql);
 	}
 
-
 	public List<Hire> selectAllowRecruit() throws Exception {
 		List<Hire> list =new ArrayList<Hire>();		
 		list=(List<Hire>) this.selectAll();
 		return list;
-
 	}
 }

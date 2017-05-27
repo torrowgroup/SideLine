@@ -29,7 +29,6 @@ public class ReaumeServlet extends HttpServlet {
 		String username= (String) request.getSession().getAttribute("username");
 		System.out.println(ask);
 		String forward = null;	//记录要转发的地址
-		
 		if(ask.equals("writereaume")){		//请求为填写简历	                              
 			forward = "/WEB-INF/jsp/writereaume.jsp";
 		} else if(ask.equals("recommendjob")){		//如果请求为推荐招聘信息，搜索下以前是否提交过简历 
@@ -51,12 +50,11 @@ public class ReaumeServlet extends HttpServlet {
 			ArrayList list =new ArrayList<Reaume>();		
 			try {
 				list = (ArrayList) new ReaumeService().fingByname(username);
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		        request.setAttribute("list",list);
-		        	forward = "/WEB-INF/jsp/deletreaume.jsp";
+		    request.setAttribute("list",list);
+		    forward = "/WEB-INF/jsp/deletreaume.jsp";
 		      
 		}else if(ask.equals("update")){
 			String id=request.getParameter("id");

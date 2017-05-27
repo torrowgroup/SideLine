@@ -79,7 +79,7 @@ public class RecruitServlet extends HttpServlet {
 				if(lists==null){
 					recruitPrompt = "未提交过简历，无法推荐工作，请先填写简历";	//返回首页
 					List<Recruit> lists1 = new RecruitService().selectAllowRecruit();
-					forward = "/WEB-INF/jsp/allowrecruit.jsp";
+					forward = "/WEB-INF/jsp/selectrecruit.jsp";
 				} else {
 					for(int i=0;i<lists.size();i++){
 						if(lists.get(i).getAllow().equals("否")){
@@ -164,23 +164,7 @@ public class RecruitServlet extends HttpServlet {
 				out.println("更改失败");
 				response.setHeader("refresh", "2;url=/SideLine/RecruitServlet?ask=update");
 			}
-		} else if(ask.equals("write")){
-			Recruit recruit = new Recruit(username,unit,name,work,requirement,phone,time,location,salary,"否");
-			String recruitPrompt = "填写失败";
-			boolean boo;
-			try {
-				boo = new RecruitService().addRecruit(recruit);
-			if(boo){
-					recruitPrompt = "填写成功，等待管理员审核";
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			request.setAttribute("recruitPrompt", recruitPrompt);
-			request.getRequestDispatcher("/WEB-INF/jsp/writerecruit.jsp").forward(request, response);
-		}
-		else if(ask.equals("updateno")){
+		} else if(ask.equals("updateno")){
 			String id = request.getParameter("id");
 			Recruit recruit = new Recruit(id, username, unit, name, work, requirement, phone, time, location, salary,"是");
 			boolean bool = false;

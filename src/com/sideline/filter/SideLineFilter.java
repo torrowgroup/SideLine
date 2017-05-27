@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/SideLineFilter")
+
 public class SideLineFilter implements Filter {
 	private FilterConfig Config;
     public SideLineFilter() {
@@ -30,6 +30,7 @@ public class SideLineFilter implements Filter {
 		String noPath =  Config.getInitParameter("noPath");		//获得不过滤的url
 		System.out.println("28"+requestNew.getRequestURI());
 		if(noPath!=null){
+			
 			String []str = noPath.split(";");
 			for (int i = 0; i < str.length; i++) {
 				if(str[i]==null||str[i]==""){

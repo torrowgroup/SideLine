@@ -15,5 +15,12 @@
     </script>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb78e5a7fa32067e8acae90b63380fd4ba6ac4df
+>>>>>>> 29c2e576ee83f4a2763e3e6c2c2aff243b3971e2
 </body>
 </html>
