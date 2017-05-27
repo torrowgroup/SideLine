@@ -3,6 +3,7 @@
 import com.sideline.base.DaoBase;
 import com.sideline.entity.Hire;
 import com.sideline.entity.User;
+import com.sideline.entity.Reaume;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
