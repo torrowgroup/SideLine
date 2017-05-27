@@ -20,6 +20,11 @@ import com.sideline.util.MysqlLink;
  *
  * @param <T>
  * 2017年5月27日下午5:30:47
+/**
+ * 我是金高
+ * @author 雨
+ *
+ * @param <T>
  */
 public class DaoBase<T>{
 	private Class<T> clazz;
