@@ -1,4 +1,4 @@
-ï»¿package com.sideline.dao;
+package com.sideline.dao;
 
 import com.sideline.base.DaoBase;
 import com.sideline.entity.Hire;
@@ -11,47 +11,47 @@ import java.util.List;
 public class HireDao extends DaoBase<Hire> {
 
 
-	public boolean addHire(Hire hire) throws SQLException {	//æ·»åŠ é›‡ä½£å…³ç³»
+	public boolean addHire(Hire hire) throws SQLException {	//Ìí¼Ó¹ÍÓ¶¹ØÏµ
 		return this.add(hire);
 	}
 
 
-	public List<Hire> selectOnesHire1(User user) throws Exception {	//æŸ¥æ‰¾å·¥ä½œç»å†ã€‚èº«ä¸ºæ‹›è˜è€…,æœªå®Œæˆçš„
+	public List<Hire> selectOnesHire1(User user) throws Exception {	//²éÕÒ¹¤×÷¾­Àú¡£ÉíÎªÕĞÆ¸Õß,Î´Íê³ÉµÄ
 		String username = user.getUsername();
-		String sql1 = "select * from hire where unitusername='"+username+"'and finish='å¦'";
+		String sql1 = "select * from hire where unitusername='"+username+"'and finish='·ñ'";
 		List<Hire> lists1 = this.executeFindSql(sql1);
 		return lists1;
 	}
 
-	public List<Hire> selectOnesHire2(User user) throws Exception {		//æŸ¥æ‰¾å·¥ä½œç»å†ã€‚èº«ä¸ºæ±‚èŒè€…,æœªå®Œæˆçš„
+	public List<Hire> selectOnesHire2(User user) throws Exception {		//²éÕÒ¹¤×÷¾­Àú¡£ÉíÎªÇóÖ°Õß,Î´Íê³ÉµÄ
 		String username = user.getUsername();
-		String sql2 = "select * from hire where seekerusername='"+username+"'and finish='å¦'";
+		String sql2 = "select * from hire where seekerusername='"+username+"'and finish='·ñ'";
 		List<Hire> lists2 = this.executeFindSql(sql2);
 		return lists2;
 	}
 	
-	public List<Hire> selectOnesHire3(User user) throws Exception {	//æŸ¥æ‰¾å·¥ä½œç»å†ã€‚èº«ä¸ºæ‹›è˜è€…,å·²å®Œæˆçš„
+	public List<Hire> selectOnesHire3(User user) throws Exception {	//²éÕÒ¹¤×÷¾­Àú¡£ÉíÎªÕĞÆ¸Õß,ÒÑÍê³ÉµÄ
 		String username = user.getUsername();
-		String sql1 = "select * from hire where unitusername='"+username+"'and finish='æ˜¯'";
+		String sql1 = "select * from hire where unitusername='"+username+"'and finish='ÊÇ'";
 		List<Hire> lists1 = this.executeFindSql(sql1);
 		return lists1;
 	}
 
-	public List<Hire> selectOnesHire4(User user) throws Exception {		//æŸ¥æ‰¾å·¥ä½œç»å†ã€‚èº«ä¸ºæ±‚èŒè€…,ä»¥å®Œæˆçš„
+	public List<Hire> selectOnesHire4(User user) throws Exception {		//²éÕÒ¹¤×÷¾­Àú¡£ÉíÎªÇóÖ°Õß,ÒÔÍê³ÉµÄ
 		String username = user.getUsername();
-		String sql2 = "select * from hire where seekerusername='"+username+"'and finish='æ˜¯'";
+		String sql2 = "select * from hire where seekerusername='"+username+"'and finish='ÊÇ'";
 		List<Hire> lists2 = this.executeFindSql(sql2);
 		return lists2;
 	}
 	
-	public int finish(String hireid) {	///ç¡®è®¤å·¥ä½œå·²å®Œæˆ
-		String sql = "update hire set finish = 'æ˜¯ ' where id= '"+hireid+"'";
+	public int finish(String hireid) {	///È·ÈÏ¹¤×÷ÒÑÍê³É
+		String sql = "update hire set finish = 'ÊÇ ' where id= '"+hireid+"'";
 		System.out.println(sql);
 		return this.executeSql(sql);
 	}
 
 
-	public int unitRemark(Hire hire) throws Exception {	//å•†å®¶å¡«å†™è¯„ä»·
+	public int unitRemark(Hire hire) throws Exception {	//ÉÌ¼ÒÌîĞ´ÆÀ¼Û
 		String id = hire.getId();
 		String unitremark = hire.getUnitremark();
 		String sql1 = "select * from hire where id = '"+id+"'";

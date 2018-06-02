@@ -1,4 +1,4 @@
-ï»¿package com.sideline.controll;
+package com.sideline.controll;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,8 +19,8 @@ import com.sideline.service.RecruitService;
 
 @WebServlet("/HireServlet")
 public class HireServlet extends HttpServlet {
-	//æ¨é€åŸºæœ¬å®Œæˆ
-	//æ¨é€
+	//ÍÆËÍ»ù±¾Íê³É
+	//ÍÆËÍ
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String username = (String) request.getSession().getAttribute("username");
     	String hirePrompt = null;
@@ -29,37 +29,37 @@ public class HireServlet extends HttpServlet {
     	String ask = request.getParameter("ask");
     	System.out.println(ask);
     	String forward = null;
-    	if(ask.equals("apply")){	//è¯·æ±‚ä¸ºç”³è¯·å·¥ä½œ
-    		String recruitId = request.getParameter("recruitId");	//å¾—åˆ°æ‹›è˜è¡¨ID
+    	if(ask.equals("apply")){	//ÇëÇóÎªÉêÇë¹¤×÷
+    		String recruitId = request.getParameter("recruitId");	//µÃµ½ÕĞÆ¸±íID
     		System.out.println(recruitId+"recruitId");
-    		hirePrompt = "ç”³è¯·å¤±è´¥ï¼Œä¸ç¬¦åˆè¦æ±‚";
+    		hirePrompt = "ÉêÇëÊ§°Ü£¬²»·ûºÏÒªÇó";
     		try {
 				Recruit recruit = new RecruitService().selectRecruitId(recruitId);
 				String unit = recruit.getUnit();
 				System.out.println(recruit+" recruit"+unit);
 				String unitusername = recruit.getUsername();
-				Reaume reaume = new ReaumeService().selectOnesReaume(user);	//æŸ¥æ‰¾å‡ºç”¨æˆ·æœ€æ–°çš„ç®€å†
+				Reaume reaume = new ReaumeService().selectOnesReaume(user);	//²éÕÒ³öÓÃ»§×îĞÂµÄ¼òÀú
 				if(reaume==null){
-					hirePrompt = "ç”³è¯·å¤±è´¥ï¼Œè¯·å…ˆå¡«å†™ç®€å†";
+					hirePrompt = "ÉêÇëÊ§°Ü£¬ÇëÏÈÌîĞ´¼òÀú";
 					forward = "/WEB-INF/jsp/allowrecruit.jsp";
 				} else {
 					String seekerId = reaume.getId();
-					Hire hire = new Hire(recruitId,unit,unitusername,seekerId,username,null,null,"å¦");
+					Hire hire = new Hire(recruitId,unit,unitusername,seekerId,username,null,null,"·ñ");
 					boolean boo = new HireService().addHire(hire);
 					//boolean booo = new RecruitService().deleteId(recruitId);
 					if(boo){
-						hirePrompt = "ç”³è¯·æˆåŠŸï¼Œè¯·è”ç³»æ‹›è˜äºº";
+						hirePrompt = "ÉêÇë³É¹¦£¬ÇëÁªÏµÕĞÆ¸ÈË";
 					}
 					try {
 						List<Recruit>  lists1 = new RecruitService().selectRecruit(user);
 						if(lists1==null){
-							hirePrompt = "æ— æ¨èå·¥ä½œ";	
+							hirePrompt = "ÎŞÍÆ¼ö¹¤×÷";	
 							List<Recruit> lists2 = new RecruitService().selectAllowRecruit();
 							request.setAttribute("recommend", lists2);
 							forward = "/WEB-INF/jsp/selectrecruit.jsp";
 						} else {
 							for(int i=0;i<lists1.size();i++){
-								if(lists1.get(i).getAllow().equals("å¦")){
+								if(lists1.get(i).getAllow().equals("·ñ")){
 									lists1.remove(i);
 									i--;
 								}
@@ -75,7 +75,7 @@ public class HireServlet extends HttpServlet {
 					e.printStackTrace();
 				}
     		forward = "/WEB-INF/jsp/allowrecruit.jsp";
-    	} else if(ask.equals("check")){	//å®¡æ ¸æ‹›è˜è¡¨ï¼Œæ±‚èŒè¡¨   ç®¡ç†å‘˜
+    	} else if(ask.equals("check")){	//ÉóºËÕĞÆ¸±í£¬ÇóÖ°±í   ¹ÜÀíÔ±
     		try {
 				List<Recruit> lists = new RecruitService().selectNotAllowRecruit();
 				request.setAttribute("checkRecruit", lists);
@@ -94,14 +94,14 @@ public class HireServlet extends HttpServlet {
 			}
     		forward = "/WEB-INF/jsp/allhire.jsp";
 
-    	} else if(ask.equals("checkhire")||ask.equals("finish")){	//æŸ¥æ‰¾ä¸ªäººå·¥ä½œç»å†
+    	} else if(ask.equals("checkhire")||ask.equals("finish")){	//²éÕÒ¸öÈË¹¤×÷¾­Àú
     		try {
-    			if(ask.equals("finish")){	//å•†å®¶ç¡®è®¤å·¥ä½œå·²å®Œæˆ
+    			if(ask.equals("finish")){	//ÉÌ¼ÒÈ·ÈÏ¹¤×÷ÒÑÍê³É
 			    	String hireid = request.getParameter("id");
 			    	int count = new HireService().finish(hireid);
-			   		hirePrompt = "ç¡®è®¤å®Œæˆå¤±è´¥";
+			   		hirePrompt = "È·ÈÏÍê³ÉÊ§°Ü";
 			   		if(count==1){
-			   			hirePrompt = "ç¡®è®¤å®ŒæˆæˆåŠŸï¼Œå·¥ä½œç»“æŸ";
+			   			hirePrompt = "È·ÈÏÍê³É³É¹¦£¬¹¤×÷½áÊø";
 			   		}
 				}
 				List<Hire> lists1 = new HireService().selectOnesHire1(user);
@@ -116,11 +116,11 @@ public class HireServlet extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	} else if(ask.equals("writeunitremark")){	//æ‹›è˜è€…å¡«å†™è¯„è¯­
+    	} else if(ask.equals("writeunitremark")){	//ÕĞÆ¸ÕßÌîĞ´ÆÀÓï
     		String id = request.getParameter("id");
     		request.setAttribute("id", id);
     		forward = "/WEB-INF/jsp/unitremark.jsp";
-    	} else if(ask.equals("writeseekerremark")){	//æ±‚èŒè€…å¡«å†™è¯„è¯­
+    	} else if(ask.equals("writeseekerremark")){	//ÇóÖ°ÕßÌîĞ´ÆÀÓï
     		String id = request.getParameter("id");
     		request.setAttribute("id", id);
     		forward = "/WEB-INF/jsp/seekerremark.jsp";
@@ -141,16 +141,16 @@ public class HireServlet extends HttpServlet {
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");	//å¾—åˆ°å¡«å†™çš„æ˜¯é‚£ä¸ªæ‹›è˜è¡¨çš„id
+		String id = request.getParameter("id");	//µÃµ½ÌîĞ´µÄÊÇÄÇ¸öÕĞÆ¸±íµÄid
 		String remark = request.getParameter("remark");
 		Hire hire = new Hire();
 		hire.setId(id);
 		String ask = request.getParameter("ask");
 		System.out.println(id+"id");
-		String hirePrompt = "å¡«å†™å¤±è´¥";
+		String hirePrompt = "ÌîĞ´Ê§°Ü";
 		String forward = null;
 		int count = 0;
-		if(ask.equals("unitremark")){	//æ‹›è˜è€…å¡«å†™çš„è¯„è¯­
+		if(ask.equals("unitremark")){	//ÕĞÆ¸ÕßÌîĞ´µÄÆÀÓï
 			hire.setUnitremark(remark);
 			try {
 				count = new HireService().unitRemark(hire);
@@ -159,7 +159,7 @@ public class HireServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			forward = "/WEB-INF/jsp/unitremark.jsp";
-		} else if(ask.equals("seekerremark")){  //æ±‚èŒè€…å¡«å†™çš„è¯„è¯­
+		} else if(ask.equals("seekerremark")){  //ÇóÖ°ÕßÌîĞ´µÄÆÀÓï
 			hire.setSeekerremark(remark);
 			try {
 				count = new HireService().seekerRemark(hire);
@@ -170,7 +170,7 @@ public class HireServlet extends HttpServlet {
 			forward = "/WEB-INF/jsp/seekerremark.jsp";
 		}
 		if(count == 1){
-			hirePrompt = "å¡«å†™æˆåŠŸ";
+			hirePrompt = "ÌîĞ´³É¹¦";
 		}
 		System.out.println(ask+" "+forward+" "+count);
 		request.setAttribute("hirePrompt", hirePrompt);

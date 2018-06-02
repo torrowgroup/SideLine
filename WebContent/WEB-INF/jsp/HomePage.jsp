@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>大学生兼职网首页</title>
+<title>大学生兼职平台</title>
 </head>
 <frameset   rows="20%,80%"  frameborder="0" border="0" framespacing="0" name="head" id="head">
 	<frame  src="./staticFile/iframe/head.html" scrolling="no"/>
@@ -11,7 +11,7 @@
 		<frame src="./staticFile/iframe/caidan.html" scrolling="no"/>
     	<frame  name="mainFrame" id="zj"  src="${path}/RecruitServlet?ask=selectallowrecruit" scrolling="yes" frameborder="1"/>
 	</frameset>
-	 <noframes>              
+	 <noframes>
                 你的浏览器不支持frame              
      </noframes>
 </frameset>

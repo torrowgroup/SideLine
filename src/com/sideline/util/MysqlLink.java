@@ -8,9 +8,12 @@ public class MysqlLink {
 	public void getLink(){			
 		try {
 			 String driver="com.mysql.jdbc.Driver";
-	    	 String url="jdbc:mysql://localhost/sideline?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
-	    	 String user="root";
-	    	 String password="root";	
+//	    	 String url="jdbc:mysql://localhost/sideline?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
+//	    	 String user="root";
+//	    	 String password="root";
+			 String url="jdbc:mysql://lovezcy.com:3306/sideline?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
+			 String user="dzl";
+	    	 String password="Ding4413@";
 	    	 Class.forName(driver);//加载数据库驱动
 	         conn=DriverManager.getConnection(url,user,password);//获取数据库连接
 			 if (conn != null) {

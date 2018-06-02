@@ -1,4 +1,4 @@
-ï»¿package com.sideline.service;
+package com.sideline.service;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,28 +10,28 @@ import com.sideline.entity.User;
 
 public class HireService {
 
-	public boolean addHire(Hire hire) throws SQLException {		//æ·»åŠ é›‡ä½£å…³ç³»
+	public boolean addHire(Hire hire) throws SQLException {		//Ìí¼Ó¹ÍÓ¶¹ØÏµ
 		return new HireDao().addHire(hire);
 	}
-	public List<Hire> selectOnesHire1(User user) throws Exception {	//æŸ¥æ‰¾ä¸ªäººå·¥ä½œ,èº«ä¸ºæ‹›è˜è€…ï¼Œå¦
+	public List<Hire> selectOnesHire1(User user) throws Exception {	//²éÕÒ¸öÈË¹¤×÷,ÉíÎªÕĞÆ¸Õß£¬·ñ
 		return new HireDao().selectOnesHire1(user);
 	}
-	public List<Hire> selectOnesHire2(User user) throws Exception {//æŸ¥æ‰¾ä¸ªäººå·¥ä½œ,èº«ä¸ºæ±‚èŒè€…ï¼Œå¦
+	public List<Hire> selectOnesHire2(User user) throws Exception {//²éÕÒ¸öÈË¹¤×÷,ÉíÎªÇóÖ°Õß£¬·ñ
 		return new HireDao().selectOnesHire2(user);
 	}
-	public List<Hire> selectOnesHire3(User user) throws Exception {	//æŸ¥æ‰¾ä¸ªäººå·¥ä½œ,èº«ä¸ºæ‹›è˜è€…ï¼Œæ˜¯
+	public List<Hire> selectOnesHire3(User user) throws Exception {	//²éÕÒ¸öÈË¹¤×÷,ÉíÎªÕĞÆ¸Õß£¬ÊÇ
 		return new HireDao().selectOnesHire3(user);
 	}
-	public List<Hire> selectOnesHire4(User user) throws Exception {//æŸ¥æ‰¾ä¸ªäººå·¥ä½œ,èº«ä¸ºæ±‚èŒè€…ï¼Œæ˜¯
+	public List<Hire> selectOnesHire4(User user) throws Exception {//²éÕÒ¸öÈË¹¤×÷,ÉíÎªÇóÖ°Õß£¬ÊÇ
 		return new HireDao().selectOnesHire4(user);
 	}
-	public int finish(String hireid) {	//ç¡®è®¤å®Œæˆå·¥ä½œ
+	public int finish(String hireid) {	//È·ÈÏÍê³É¹¤×÷
 		return new HireDao().finish(hireid);
 	}
-	public int unitRemark(Hire hire) throws Exception {	//æ‹›è˜è€…å¡«å†™è¯„ä»·
+	public int unitRemark(Hire hire) throws Exception {	//ÕĞÆ¸ÕßÌîĞ´ÆÀ¼Û
 		return new HireDao().unitRemark(hire);
 	}
-	public int seekerRemark(Hire hire) throws Exception {	//æ±‚èŒè€…å¡«å†™è¯„ä»·
+	public int seekerRemark(Hire hire) throws Exception {	//ÇóÖ°ÕßÌîĞ´ÆÀ¼Û
 		return new HireDao().seerkerRemark(hire);
 	}
 	public List<Hire> selectAllowRecruit() throws Exception {
